@@ -1,0 +1,1971 @@
+[   0.0] Examining the guest ...
+[  48.6] Setting a random seed
+[  48.9] Setting the machine ID in /etc/machine-id
+[  48.9] Running: /home/stack/repo_setup.sh
++ sudo yum install -y yum-plugin-priorities
+Loaded plugins: fastestmirror, priorities
+Determining fastest mirrors
+ * base: mirror.reconn.ru
+ * extras: mirror.reconn.ru
+ * updates: mirror.reconn.ru
+Resolving Dependencies
+--> Running transaction check
+---> Package yum-plugin-priorities.noarch 0:1.1.31-50.el7 will be updated
+---> Package yum-plugin-priorities.noarch 0:1.1.31-52.el7 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                     Arch         Version              Repository  Size
+================================================================================
+Updating:
+ yum-plugin-priorities       noarch       1.1.31-52.el7        base        29 k
+
+Transaction Summary
+================================================================================
+Upgrade  1 Package
+
+Total download size: 29 k
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : yum-plugin-priorities-1.1.31-52.el7.noarch                   1/2 
+  Cleanup    : yum-plugin-priorities-1.1.31-50.el7.noarch                   2/2 
+  Verifying  : yum-plugin-priorities-1.1.31-52.el7.noarch                   1/2 
+  Verifying  : yum-plugin-priorities-1.1.31-50.el7.noarch                   2/2 
+
+Updated:
+  yum-plugin-priorities.noarch 0:1.1.31-52.el7                                  
+
+Complete!
++ sudo yum clean all
+Loaded plugins: fastestmirror, priorities
+Cleaning repos: base extras updates
+Cleaning up list of fastest mirrors
+Other repos take up 271 M of disk space (use --verbose for details)
++ sudo rm -rf '/etc/yum.repos.d/delorean*'
++ sudo rm -rf '/etc/yum.repos.d/*.rpmsave'
++ sudo rm -rf /tmp/repo_role_tmp
++ mkdir -p /tmp/repo_role_tmp
++ cat
++ sudo cp -f /tmp/repo_role_tmp/delorean.repo /etc/yum.repos.d/
++ curl -Lvo /tmp/repo_role_tmp/delorean-deps.repo https://trunk.rdoproject.org/centos7-stein/delorean-deps.repo
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* About to connect() to trunk.rdoproject.org port 443 (#0)
+*   Trying 3.87.151.16...
+* Connected to trunk.rdoproject.org (3.87.151.16) port 443 (#0)
+* Initializing NSS with certpath: sql:/etc/pki/nssdb
+*   CAfile: /etc/pki/tls/certs/ca-bundle.crt
+  CApath: none
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0* SSL connection using TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+* Server certificate:
+* 	subject: CN=trunk.rdoproject.org
+* 	start date: Sep 02 07:26:35 2019 GMT
+* 	expire date: Dec 01 07:26:35 2019 GMT
+* 	common name: trunk.rdoproject.org
+* 	issuer: CN=Let's Encrypt Authority X3,O=Let's Encrypt,C=US
+> GET /centos7-stein/delorean-deps.repo HTTP/1.1
+> User-Agent: curl/7.29.0
+> Host: trunk.rdoproject.org
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Date: Fri, 27 Sep 2019 09:47:05 GMT
+< Server: Apache
+< Last-Modified: Thu, 07 Mar 2019 11:11:31 GMT
+< ETag: "1c3-5837f2b1ff8d6"
+< Accept-Ranges: bytes
+< Content-Length: 451
+< 
+{ [data not shown]
+100   451  100   451    0     0    237      0  0:00:01  0:00:01 --:--:--   238
+* Connection #0 to host trunk.rdoproject.org left intact
++ sudo cp -f /tmp/repo_role_tmp/delorean-deps.repo /etc/yum.repos.d/
++ sudo yum install -y --enablerepo=extras centos-release-ceph-nautilus
+Loaded plugins: fastestmirror, priorities
+Determining fastest mirrors
+ * base: mirror.reconn.ru
+ * extras: mirror.reconn.ru
+ * updates: mirror.reconn.ru
+2 packages excluded due to repository priority protections
+Resolving Dependencies
+--> Running transaction check
+---> Package centos-release-ceph-nautilus.noarch 0:1.2-2.el7.centos will be installed
+--> Processing Dependency: centos-release-storage-common for package: centos-release-ceph-nautilus-1.2-2.el7.centos.noarch
+--> Processing Dependency: centos-release-nfs-ganesha28 for package: centos-release-ceph-nautilus-1.2-2.el7.centos.noarch
+--> Running transaction check
+---> Package centos-release-nfs-ganesha28.noarch 0:1.0-2.el7.centos will be installed
+---> Package centos-release-storage-common.noarch 0:2-2.el7.centos will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                          Arch      Version             Repository
+                                                                           Size
+================================================================================
+Installing:
+ centos-release-ceph-nautilus     noarch    1.2-2.el7.centos    extras    5.1 k
+Installing for dependencies:
+ centos-release-nfs-ganesha28     noarch    1.0-2.el7.centos    extras    4.3 k
+ centos-release-storage-common    noarch    2-2.el7.centos      extras    5.1 k
+
+Transaction Summary
+================================================================================
+Install  1 Package (+2 Dependent packages)
+
+Total download size: 14 k
+Installed size: 3.0 k
+Downloading packages:
+--------------------------------------------------------------------------------
+Total                                              2.8 kB/s |  14 kB  00:05     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : centos-release-storage-common-2-2.el7.centos.noarch          1/3 
+  Installing : centos-release-nfs-ganesha28-1.0-2.el7.centos.noarch         2/3 
+  Installing : centos-release-ceph-nautilus-1.2-2.el7.centos.noarch         3/3 
+  Verifying  : centos-release-nfs-ganesha28-1.0-2.el7.centos.noarch         1/3 
+  Verifying  : centos-release-ceph-nautilus-1.2-2.el7.centos.noarch         2/3 
+  Verifying  : centos-release-storage-common-2-2.el7.centos.noarch          3/3 
+
+Installed:
+  centos-release-ceph-nautilus.noarch 0:1.2-2.el7.centos                        
+
+Dependency Installed:
+  centos-release-nfs-ganesha28.noarch 0:1.0-2.el7.centos                        
+  centos-release-storage-common.noarch 0:2-2.el7.centos                         
+
+Complete!
++ sudo yum remove -y centos-release-ceph-hammer
+Loaded plugins: fastestmirror, priorities
+No Match for argument: centos-release-ceph-hammer
+No Packages marked for removal
++ sudo yum remove -y centos-release-ceph-jewel
+Loaded plugins: fastestmirror, priorities
+No Match for argument: centos-release-ceph-jewel
+No Packages marked for removal
++ sudo yum remove -y centos-release-ceph-luminous
+Loaded plugins: fastestmirror, priorities
+No Match for argument: centos-release-ceph-luminous
+No Packages marked for removal
++ sudo yum-config-manager --save --setopt centos-ceph-nautilus.gpgcheck=0
+Loaded plugins: fastestmirror, priorities
+===================================== main =====================================
+[main]
+alwaysprompt = True
+assumeno = False
+assumeyes = False
+autocheck_running_kernel = True
+autosavets = True
+bandwidth = 0
+bugtracker_url = http://bugs.centos.org/set_project.php?project_id=23&ref=http://bugs.centos.org/bug_report_page.php?category=yum
+cache = 0
+cachedir = /var/cache/yum
+check_config_file_age = True
+clean_requirements_on_remove = False
+color = auto
+color_list_available_downgrade = dim,cyan
+color_list_available_install = normal
+color_list_available_reinstall = bold,underline,green
+color_list_available_running_kernel = bold,underline
+color_list_available_upgrade = bold,blue
+color_list_installed_extra = bold,red
+color_list_installed_newer = bold,yellow
+color_list_installed_older = bold
+color_list_installed_reinstall = normal
+color_list_installed_running_kernel = bold,underline
+color_search_match = bold
+color_update_installed = normal
+color_update_local = bold
+color_update_remote = normal
+commands = 
+debuglevel = 2
+deltarpm = 2
+deltarpm_metadata_percentage = 100
+deltarpm_percentage = 75
+depsolve_loop_limit = 100
+disable_includes = 
+diskspacecheck = True
+distroverpkg = centos-release
+downloaddir = 
+downloadonly = 
+enable_group_conditionals = True
+enabled = True
+enablegroups = True
+errorlevel = 2
+exactarch = True
+exactarchlist = 
+exclude = 
+exit_on_lock = False
+failovermethod = priority
+fssnap_abort_on_errors = any
+fssnap_automatic_keep = 1
+fssnap_automatic_post = False
+fssnap_automatic_pre = False
+fssnap_devices = !*/swap,
+   !*/lv_swap
+fssnap_percentage = 100
+ftp_disable_epsv = False
+gaftonmode = False
+gpgcheck = True
+group_command = objects
+group_package_types = mandatory,
+   default
+groupremove_leaf_only = False
+history_list_view = single-user-commands
+history_record = True
+history_record_packages = yum,
+   rpm
+http_caching = all
+installonly_limit = 5
+installonlypkgs = kernel,
+   kernel-bigmem,
+   installonlypkg(kernel),
+   installonlypkg(kernel-module),
+   installonlypkg(vm),
+   kernel-enterprise,
+   kernel-smp,
+   kernel-debug,
+   kernel-unsupported,
+   kernel-source,
+   kernel-devel,
+   kernel-PAE,
+   kernel-PAE-debug
+installroot = /
+ip_resolve = 
+keepalive = True
+keepcache = False
+kernelpkgnames = kernel,
+   kernel-smp,
+   kernel-enterprise,
+   kernel-bigmem,
+   kernel-BOOT,
+   kernel-PAE,
+   kernel-PAE-debug
+loadts_ignoremissing = False
+loadts_ignorenewrpm = False
+loadts_ignorerpm = False
+localpkg_gpgcheck = False
+logfile = /var/log/yum.log
+max_connections = 0
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+metadata_expire = 21600
+metadata_expire_filter = read-only:present
+minrate = 0
+mirrorlist_expire = 86400
+multilib_policy = best
+obsoletes = True
+override_install_langs = 
+overwrite_groups = False
+password = 
+payload_gpgcheck = False
+persistdir = /var/lib/yum
+pluginconfpath = /etc/yum/pluginconf.d
+pluginpath = /usr/share/yum-plugins,
+   /usr/lib/yum-plugins
+plugins = True
+progess_obj = 
+protected_multilib = True
+protected_packages = yum,
+   systemd
+proxy = False
+proxy_password = 
+proxy_username = 
+query_install_excludes = False
+recent = 7
+recheck_installed_requires = True
+remove_leaf_only = False
+repo_gpgcheck = False
+repopkgsremove_leaf_only = False
+reposdir = /etc/yum/repos.d,
+   /etc/yum.repos.d
+reset_nice = True
+retries = 10
+rpm_check_debug = True
+rpmverbosity = info
+shell_exit_status = 0
+showdupesfromrepos = False
+skip_broken = False
+skip_missing_names_on_install = True
+skip_missing_names_on_update = True
+ssl_check_cert_permissions = True
+sslcacert = 
+sslclientcert = 
+sslclientkey = 
+sslverify = True
+syslog_device = /dev/log
+syslog_facility = LOG_USER
+syslog_ident = 
+throttle = 0
+timeout = 30.0
+tolerant = True
+tsflags = 
+ui_repoid_vars = releasever,
+   basearch
+upgrade_group_objects_upgrade = True
+upgrade_requirements_on_install = False
+usercache = True
+username = 
+usr_w_check = True
+
+================================== repo: base ==================================
+[base]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = 
+cache = 0
+cachedir = /var/cache/yum/base
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage = 
+enabled = True
+enablegroups = True
+exclude = 
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/base/gpgcadir
+gpgcakey = 
+gpgcheck = True
+gpgdir = /var/lib/yum/repos/x86_64/7/base/gpgdir
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+hdrdir = /var/cache/yum/base/headers
+http_caching = all
+includepkgs = 
+ip_resolve = 
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid = 
+metadata_expire = 21600
+metadata_expire_filter = read-only:present
+metalink = 
+minrate = 0
+mirrorlist = http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=os&infra=genclo
+mirrorlist_expire = 86400
+name = CentOS-7 - Base
+old_base_cache_dir = 
+password = 
+persistdir = /var/lib/yum/repos/x86_64/7/base
+pkgdir = /var/cache/yum/base/packages
+priority = 99
+proxy = False
+proxy_dict = 
+proxy_password = 
+proxy_username = 
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = False
+ssl_check_cert_permissions = True
+sslcacert = 
+sslclientcert = 
+sslclientkey = 
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = base/7/x86_64
+ui_repoid_vars = releasever,
+   basearch
+username = 
+
+========================== repo: centos-ceph-nautilus ==========================
+[centos-ceph-nautilus]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = 
+cache = 0
+cachedir = /var/cache/yum/centos-ceph-nautilus
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage = 
+enabled = True
+enablegroups = True
+exclude = 
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/centos-ceph-nautilus/gpgcadir
+gpgcakey = 
+gpgcheck = False
+gpgdir = /var/lib/yum/repos/x86_64/7/centos-ceph-nautilus/gpgdir
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Storage
+hdrdir = /var/cache/yum/centos-ceph-nautilus/headers
+http_caching = all
+includepkgs = 
+ip_resolve = 
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid = 
+metadata_expire = 21600
+metadata_expire_filter = read-only:present
+metalink = 
+minrate = 0
+mirrorlist = http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=storage-ceph-nautilus
+mirrorlist_expire = 86400
+name = CentOS-7 - Ceph Nautilus
+old_base_cache_dir = 
+password = 
+persistdir = /var/lib/yum/repos/x86_64/7/centos-ceph-nautilus
+pkgdir = /var/cache/yum/centos-ceph-nautilus/packages
+priority = 99
+proxy = False
+proxy_dict = 
+proxy_password = 
+proxy_username = 
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = False
+ssl_check_cert_permissions = True
+sslcacert = 
+sslclientcert = 
+sslclientkey = 
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = centos-ceph-nautilus/7/x86_64
+ui_repoid_vars = releasever,
+   basearch
+username = 
+
+========================== repo: centos-nfs-ganesha28 ==========================
+[centos-nfs-ganesha28]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = 
+cache = 0
+cachedir = /var/cache/yum/centos-nfs-ganesha28
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage = 
+enabled = True
+enablegroups = True
+exclude = 
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/centos-nfs-ganesha28/gpgcadir
+gpgcakey = 
+gpgcheck = True
+gpgdir = /var/lib/yum/repos/x86_64/7/centos-nfs-ganesha28/gpgdir
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Storage
+hdrdir = /var/cache/yum/centos-nfs-ganesha28/headers
+http_caching = all
+includepkgs = 
+ip_resolve = 
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid = 
+metadata_expire = 21600
+metadata_expire_filter = read-only:present
+metalink = 
+minrate = 0
+mirrorlist = http://mirrorlist.centos.org?arch=x86_64&release=7&repo=storage-nfs-ganesha-28
+mirrorlist_expire = 86400
+name = CentOS-7 - NFS Ganesha 2.8
+old_base_cache_dir = 
+password = 
+persistdir = /var/lib/yum/repos/x86_64/7/centos-nfs-ganesha28
+pkgdir = /var/cache/yum/centos-nfs-ganesha28/packages
+priority = 99
+proxy = False
+proxy_dict = 
+proxy_password = 
+proxy_username = 
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = False
+ssl_check_cert_permissions = True
+sslcacert = 
+sslclientcert = 
+sslclientkey = 
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = centos-nfs-ganesha28/7/x86_64
+ui_repoid_vars = releasever,
+   basearch
+username = 
+
+================================ repo: delorean ================================
+[delorean]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = https://trunk.rdoproject.org/centos7-stein/7e/7d/7e7d310e1b7ef51a163560cfa56c675afa3a1683_a3792cfa/
+cache = 0
+cachedir = /var/cache/yum/delorean
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage = 
+enabled = True
+enablegroups = True
+exclude = 
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/delorean/gpgcadir
+gpgcakey = 
+gpgcheck = False
+gpgdir = /var/lib/yum/repos/x86_64/7/delorean/gpgdir
+gpgkey = 
+hdrdir = /var/cache/yum/delorean/headers
+http_caching = all
+includepkgs = 
+ip_resolve = 
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid = 
+metadata_expire = 21600
+metadata_expire_filter = read-only:present
+metalink = 
+minrate = 0
+mirrorlist = 
+mirrorlist_expire = 86400
+name = delorean
+old_base_cache_dir = 
+password = 
+persistdir = /var/lib/yum/repos/x86_64/7/delorean
+pkgdir = /var/cache/yum/delorean/packages
+priority = 20
+proxy = False
+proxy_dict = 
+proxy_password = 
+proxy_username = 
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = False
+ssl_check_cert_permissions = True
+sslcacert = 
+sslclientcert = 
+sslclientkey = 
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = delorean
+ui_repoid_vars = releasever,
+   basearch
+username = 
+
+======================= repo: delorean-stein-build-deps ========================
+[delorean-stein-build-deps]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = https://trunk.rdoproject.org/centos7-stein/build-deps/latest/
+cache = 0
+cachedir = /var/cache/yum/delorean-stein-build-deps
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage = 
+enabled = True
+enablegroups = True
+exclude = 
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/delorean-stein-build-deps/gpgcadir
+gpgcakey = 
+gpgcheck = False
+gpgdir = /var/lib/yum/repos/x86_64/7/delorean-stein-build-deps/gpgdir
+gpgkey = 
+hdrdir = /var/cache/yum/delorean-stein-build-deps/headers
+http_caching = all
+includepkgs = 
+ip_resolve = 
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid = 
+metadata_expire = 21600
+metadata_expire_filter = read-only:present
+metalink = 
+minrate = 0
+mirrorlist = 
+mirrorlist_expire = 86400
+name = dlrn-stein-build-deps
+old_base_cache_dir = 
+password = 
+persistdir = /var/lib/yum/repos/x86_64/7/delorean-stein-build-deps
+pkgdir = /var/cache/yum/delorean-stein-build-deps/packages
+priority = 99
+proxy = False
+proxy_dict = 
+proxy_password = 
+proxy_username = 
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = False
+ssl_check_cert_permissions = True
+sslcacert = 
+sslclientcert = 
+sslclientkey = 
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = delorean-stein-build-deps
+ui_repoid_vars = releasever,
+   basearch
+username = 
+
+========================= repo: delorean-stein-testing =========================
+[delorean-stein-testing]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = https://trunk.rdoproject.org/centos7-stein/deps/latest/
+cache = 0
+cachedir = /var/cache/yum/delorean-stein-testing
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage = 
+enabled = True
+enablegroups = True
+exclude = 
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/delorean-stein-testing/gpgcadir
+gpgcakey = 
+gpgcheck = False
+gpgdir = /var/lib/yum/repos/x86_64/7/delorean-stein-testing/gpgdir
+gpgkey = 
+hdrdir = /var/cache/yum/delorean-stein-testing/headers
+http_caching = all
+includepkgs = 
+ip_resolve = 
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid = 
+metadata_expire = 21600
+metadata_expire_filter = read-only:present
+metalink = 
+minrate = 0
+mirrorlist = 
+mirrorlist_expire = 86400
+name = dlrn-stein-testing
+old_base_cache_dir = 
+password = 
+persistdir = /var/lib/yum/repos/x86_64/7/delorean-stein-testing
+pkgdir = /var/cache/yum/delorean-stein-testing/packages
+priority = 99
+proxy = False
+proxy_dict = 
+proxy_password = 
+proxy_username = 
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = False
+ssl_check_cert_permissions = True
+sslcacert = 
+sslclientcert = 
+sslclientkey = 
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = delorean-stein-testing
+ui_repoid_vars = releasever,
+   basearch
+username = 
+
+================================= repo: extras =================================
+[extras]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = 
+cache = 0
+cachedir = /var/cache/yum/extras
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage = 
+enabled = True
+enablegroups = True
+exclude = 
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/extras/gpgcadir
+gpgcakey = 
+gpgcheck = True
+gpgdir = /var/lib/yum/repos/x86_64/7/extras/gpgdir
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+hdrdir = /var/cache/yum/extras/headers
+http_caching = all
+includepkgs = 
+ip_resolve = 
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid = 
+metadata_expire = 21600
+metadata_expire_filter = read-only:present
+metalink = 
+minrate = 0
+mirrorlist = http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=extras&infra=genclo
+mirrorlist_expire = 86400
+name = CentOS-7 - Extras
+old_base_cache_dir = 
+password = 
+persistdir = /var/lib/yum/repos/x86_64/7/extras
+pkgdir = /var/cache/yum/extras/packages
+priority = 99
+proxy = False
+proxy_dict = 
+proxy_password = 
+proxy_username = 
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = False
+ssl_check_cert_permissions = True
+sslcacert = 
+sslclientcert = 
+sslclientkey = 
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = extras/7/x86_64
+ui_repoid_vars = releasever,
+   basearch
+username = 
+
+============================== repo: rdo-qemu-ev ===============================
+[rdo-qemu-ev]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = http://mirror.centos.org/centos/7/virt/x86_64/kvm-common/
+cache = 0
+cachedir = /var/cache/yum/rdo-qemu-ev
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage = 
+enabled = True
+enablegroups = True
+exclude = 
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/rdo-qemu-ev/gpgcadir
+gpgcakey = 
+gpgcheck = False
+gpgdir = /var/lib/yum/repos/x86_64/7/rdo-qemu-ev/gpgdir
+gpgkey = 
+hdrdir = /var/cache/yum/rdo-qemu-ev/headers
+http_caching = all
+includepkgs = 
+ip_resolve = 
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid = 
+metadata_expire = 21600
+metadata_expire_filter = read-only:present
+metalink = 
+minrate = 0
+mirrorlist = 
+mirrorlist_expire = 86400
+name = RDO CentOS-7 - QEMU EV
+old_base_cache_dir = 
+password = 
+persistdir = /var/lib/yum/repos/x86_64/7/rdo-qemu-ev
+pkgdir = /var/cache/yum/rdo-qemu-ev/packages
+priority = 99
+proxy = False
+proxy_dict = 
+proxy_password = 
+proxy_username = 
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = True
+ssl_check_cert_permissions = True
+sslcacert = 
+sslclientcert = 
+sslclientkey = 
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = rdo-qemu-ev/x86_64
+ui_repoid_vars = releasever,
+   basearch
+username = 
+
+================================ repo: updates =================================
+[updates]
+async = True
+bandwidth = 0
+base_persistdir = /var/lib/yum/repos/x86_64/7
+baseurl = 
+cache = 0
+cachedir = /var/cache/yum/updates
+check_config_file_age = True
+compare_providers_priority = 80
+cost = 1000
+deltarpm_metadata_percentage = 100
+deltarpm_percentage = 
+enabled = True
+enablegroups = True
+exclude = 
+failovermethod = priority
+ftp_disable_epsv = False
+gpgcadir = /var/lib/yum/repos/x86_64/7/updates/gpgcadir
+gpgcakey = 
+gpgcheck = True
+gpgdir = /var/lib/yum/repos/x86_64/7/updates/gpgdir
+gpgkey = file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+hdrdir = /var/cache/yum/updates/headers
+http_caching = all
+includepkgs = 
+ip_resolve = 
+keepalive = True
+keepcache = False
+mddownloadpolicy = sqlite
+mdpolicy = group:small
+mediaid = 
+metadata_expire = 21600
+metadata_expire_filter = read-only:present
+metalink = 
+minrate = 0
+mirrorlist = http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=updates&infra=genclo
+mirrorlist_expire = 86400
+name = CentOS-7 - Updates
+old_base_cache_dir = 
+password = 
+persistdir = /var/lib/yum/repos/x86_64/7/updates
+pkgdir = /var/cache/yum/updates/packages
+priority = 99
+proxy = False
+proxy_dict = 
+proxy_password = 
+proxy_username = 
+repo_gpgcheck = False
+retries = 10
+skip_if_unavailable = False
+ssl_check_cert_permissions = True
+sslcacert = 
+sslclientcert = 
+sslclientkey = 
+sslverify = True
+throttle = 0
+timeout = 30.0
+ui_id = updates/7/x86_64
+ui_repoid_vars = releasever,
+   basearch
+username = 
+
++ sudo yum repolist
+Loaded plugins: fastestmirror, priorities
+Loading mirror speeds from cached hostfile
+ * base: mirror.reconn.ru
+ * centos-ceph-nautilus: mirror.reconn.ru
+ * centos-nfs-ganesha28: mirror.reconn.ru
+ * extras: mirror.reconn.ru
+ * updates: mirror.reconn.ru
+2 packages excluded due to repository priority protections
+repo id                               repo name                          status
+base/7/x86_64                         CentOS-7 - Base                      10097
+centos-ceph-nautilus/7/x86_64         CentOS-7 - Ceph Nautilus               153
+centos-nfs-ganesha28/7/x86_64         CentOS-7 - NFS Ganesha 2.8              68
+delorean                              delorean                           804+344
+delorean-stein-build-deps             dlrn-stein-build-deps              172+112
+delorean-stein-testing                dlrn-stein-testing                 892+843
+extras/7/x86_64                       CentOS-7 - Extras                      304
+rdo-qemu-ev/x86_64                    RDO CentOS-7 - QEMU EV                  83
+updates/7/x86_64                      CentOS-7 - Updates                     319
+repolist: 12892
++ sudo yum update -y
+Loaded plugins: fastestmirror, priorities
+Loading mirror speeds from cached hostfile
+ * base: mirror.reconn.ru
+ * centos-ceph-nautilus: mirror.reconn.ru
+ * centos-nfs-ganesha28: mirror.reconn.ru
+ * extras: mirror.reconn.ru
+ * updates: mirror.reconn.ru
+2 packages excluded due to repository priority protections
+Resolving Dependencies
+--> Running transaction check
+---> Package GeoIP.x86_64 0:1.5.0-13.el7 will be updated
+---> Package GeoIP.x86_64 0:1.5.0-14.el7 will be an update
+--> Processing Dependency: geoipupdate for package: GeoIP-1.5.0-14.el7.x86_64
+---> Package OpenIPMI-modalias.x86_64 0:2.0.23-2.el7 will be updated
+---> Package OpenIPMI-modalias.x86_64 0:2.0.27-1.el7 will be an update
+--> Processing Dependency: OpenIPMI for package: OpenIPMI-modalias-2.0.27-1.el7.x86_64
+---> Package atomic-registries.x86_64 1:1.22.1-27.gitb507039.el7 will be updated
+---> Package atomic-registries.x86_64 1:1.22.1-29.gitb507039.el7 will be an update
+---> Package audit.x86_64 0:2.8.4-4.el7 will be updated
+---> Package audit.x86_64 0:2.8.5-4.el7 will be an update
+---> Package audit-libs.x86_64 0:2.8.4-4.el7 will be updated
+---> Package audit-libs.x86_64 0:2.8.5-4.el7 will be an update
+---> Package audit-libs-python.x86_64 0:2.8.4-4.el7 will be updated
+---> Package audit-libs-python.x86_64 0:2.8.5-4.el7 will be an update
+---> Package augeas-libs.x86_64 0:1.4.0-6.el7_6.1 will be updated
+---> Package augeas-libs.x86_64 0:1.4.0-9.el7 will be an update
+---> Package autofs.x86_64 1:5.0.7-99.el7 will be updated
+---> Package autofs.x86_64 1:5.0.7-106.el7 will be an update
+---> Package bash.x86_64 0:4.2.46-31.el7 will be updated
+---> Package bash.x86_64 0:4.2.46-33.el7 will be an update
+---> Package bind-libs.x86_64 32:9.9.4-74.el7_6.2 will be updated
+---> Package bind-libs.x86_64 32:9.11.4-9.P2.el7 will be an update
+---> Package bind-libs-lite.x86_64 32:9.9.4-74.el7_6.2 will be updated
+---> Package bind-libs-lite.x86_64 32:9.11.4-9.P2.el7 will be an update
+---> Package bind-license.noarch 32:9.9.4-74.el7_6.2 will be updated
+---> Package bind-license.noarch 32:9.11.4-9.P2.el7 will be an update
+---> Package bind-utils.x86_64 32:9.9.4-74.el7_6.2 will be updated
+---> Package bind-utils.x86_64 32:9.11.4-9.P2.el7 will be an update
+---> Package binutils.x86_64 0:2.27-34.base.el7 will be updated
+---> Package binutils.x86_64 0:2.27-41.base.el7 will be an update
+---> Package biosdevname.x86_64 0:0.7.3-1.el7 will be updated
+---> Package biosdevname.x86_64 0:0.7.3-2.el7 will be an update
+---> Package centos-release.x86_64 0:7-6.1810.2.el7.centos will be updated
+---> Package centos-release.x86_64 0:7-7.1908.0.el7.centos will be an update
+---> Package certmonger.x86_64 0:0.78.4-10.el7 will be updated
+---> Package certmonger.x86_64 0:0.78.4-11.el7 will be an update
+---> Package chrony.x86_64 0:3.2-2.el7 will be updated
+---> Package chrony.x86_64 0:3.4-1.el7 will be an update
+---> Package cloud-init.x86_64 0:18.2-1.el7.centos.2 will be updated
+---> Package cloud-init.x86_64 0:18.5-3.el7.centos will be an update
+---> Package cloud-utils-growpart.noarch 0:0.29-2.el7_6.2 will be updated
+---> Package cloud-utils-growpart.noarch 0:0.29-5.el7 will be an update
+---> Package container-selinux.noarch 2:2.107-1.el7_6 will be updated
+---> Package container-selinux.noarch 2:2.107-3.el7 will be an update
+---> Package containernetworking-plugins.x86_64 0:0.8.1-1.el7.centos will be updated
+---> Package containernetworking-plugins.x86_64 0:0.8.1-2.el7.centos will be an update
+---> Package containers-common.x86_64 1:0.1.37-1.el7.centos will be updated
+---> Package containers-common.x86_64 1:0.1.37-3.el7.centos will be an update
+---> Package coreutils.x86_64 0:8.22-23.el7 will be updated
+---> Package coreutils.x86_64 0:8.22-24.el7 will be an update
+---> Package corosync.x86_64 0:2.4.3-4.el7 will be updated
+---> Package corosync.x86_64 0:2.4.3-6.el7_7.1 will be an update
+---> Package corosynclib.x86_64 0:2.4.3-4.el7 will be updated
+---> Package corosynclib.x86_64 0:2.4.3-6.el7_7.1 will be an update
+---> Package criu.x86_64 0:3.9-5.el7 will be updated
+---> Package criu.x86_64 0:3.12-2.el7 will be an update
+---> Package cronie.x86_64 0:1.4.11-20.el7_6 will be updated
+---> Package cronie.x86_64 0:1.4.11-23.el7 will be an update
+---> Package cronie-anacron.x86_64 0:1.4.11-20.el7_6 will be updated
+---> Package cronie-anacron.x86_64 0:1.4.11-23.el7 will be an update
+---> Package cryptsetup.x86_64 0:2.0.3-3.el7 will be updated
+---> Package cryptsetup.x86_64 0:2.0.3-5.el7 will be an update
+---> Package cryptsetup-libs.x86_64 0:2.0.3-3.el7 will be updated
+---> Package cryptsetup-libs.x86_64 0:2.0.3-5.el7 will be an update
+---> Package cups-libs.x86_64 1:1.6.3-35.el7 will be updated
+---> Package cups-libs.x86_64 1:1.6.3-40.el7 will be an update
+---> Package curl.x86_64 0:7.29.0-51.el7_6.3 will be updated
+---> Package curl.x86_64 0:7.29.0-54.el7 will be an update
+---> Package device-mapper.x86_64 7:1.02.149-10.el7_6.8 will be updated
+---> Package device-mapper.x86_64 7:1.02.158-2.el7 will be an update
+---> Package device-mapper-event.x86_64 7:1.02.149-10.el7_6.8 will be updated
+---> Package device-mapper-event.x86_64 7:1.02.158-2.el7 will be an update
+---> Package device-mapper-event-libs.x86_64 7:1.02.149-10.el7_6.8 will be updated
+---> Package device-mapper-event-libs.x86_64 7:1.02.158-2.el7 will be an update
+---> Package device-mapper-libs.x86_64 7:1.02.149-10.el7_6.8 will be updated
+---> Package device-mapper-libs.x86_64 7:1.02.158-2.el7 will be an update
+---> Package device-mapper-multipath.x86_64 0:0.4.9-123.el7 will be updated
+---> Package device-mapper-multipath.x86_64 0:0.4.9-127.el7 will be an update
+---> Package device-mapper-multipath-libs.x86_64 0:0.4.9-123.el7 will be updated
+---> Package device-mapper-multipath-libs.x86_64 0:0.4.9-127.el7 will be an update
+---> Package device-mapper-persistent-data.x86_64 0:0.7.3-3.el7 will be updated
+---> Package device-mapper-persistent-data.x86_64 0:0.8.5-1.el7 will be an update
+---> Package dhclient.x86_64 12:4.2.5-68.el7.centos.1 will be updated
+---> Package dhclient.x86_64 12:4.2.5-77.el7.centos will be an update
+--> Processing Dependency: libisc-export.so.169()(64bit) for package: 12:dhclient-4.2.5-77.el7.centos.x86_64
+--> Processing Dependency: libdns-export.so.1102()(64bit) for package: 12:dhclient-4.2.5-77.el7.centos.x86_64
+---> Package dhcp-common.x86_64 12:4.2.5-68.el7.centos.1 will be updated
+---> Package dhcp-common.x86_64 12:4.2.5-77.el7.centos will be an update
+---> Package dhcp-libs.x86_64 12:4.2.5-68.el7.centos.1 will be updated
+---> Package dhcp-libs.x86_64 12:4.2.5-77.el7.centos will be an update
+---> Package diffutils.x86_64 0:3.3-4.el7 will be updated
+---> Package diffutils.x86_64 0:3.3-5.el7 will be an update
+---> Package dmidecode.x86_64 1:3.1-2.el7 will be updated
+---> Package dmidecode.x86_64 1:3.2-3.el7 will be an update
+---> Package dnsmasq.x86_64 0:2.76-7.el7 will be updated
+---> Package dnsmasq.x86_64 0:2.76-9.el7 will be an update
+---> Package docker.x86_64 2:1.13.1-102.git7f2769b.el7.centos will be updated
+---> Package docker.x86_64 2:1.13.1-103.git7f2769b.el7.centos will be an update
+---> Package docker-client.x86_64 2:1.13.1-102.git7f2769b.el7.centos will be updated
+---> Package docker-client.x86_64 2:1.13.1-103.git7f2769b.el7.centos will be an update
+---> Package docker-common.x86_64 2:1.13.1-102.git7f2769b.el7.centos will be updated
+---> Package docker-common.x86_64 2:1.13.1-103.git7f2769b.el7.centos will be an update
+---> Package dpdk.x86_64 0:18.11-4.el7_6 will be updated
+---> Package dpdk.x86_64 0:18.11.2-1.el7 will be an update
+---> Package dracut.x86_64 0:033-554.el7 will be updated
+---> Package dracut.x86_64 0:033-564.el7 will be an update
+---> Package dracut-config-generic.x86_64 0:033-554.el7 will be updated
+---> Package dracut-config-generic.x86_64 0:033-564.el7 will be an update
+---> Package dracut-config-rescue.x86_64 0:033-554.el7 will be updated
+---> Package dracut-config-rescue.x86_64 0:033-564.el7 will be an update
+---> Package dracut-network.x86_64 0:033-554.el7 will be updated
+---> Package dracut-network.x86_64 0:033-564.el7 will be an update
+---> Package e2fsprogs.x86_64 0:1.42.9-13.el7 will be updated
+---> Package e2fsprogs.x86_64 0:1.42.9-16.el7 will be an update
+---> Package e2fsprogs-libs.x86_64 0:1.42.9-13.el7 will be updated
+---> Package e2fsprogs-libs.x86_64 0:1.42.9-16.el7 will be an update
+---> Package efivar-libs.x86_64 0:36-11.el7_6.1 will be updated
+---> Package efivar-libs.x86_64 0:36-12.el7 will be an update
+---> Package elfutils-default-yama-scope.noarch 0:0.172-2.el7 will be updated
+---> Package elfutils-default-yama-scope.noarch 0:0.176-2.el7 will be an update
+---> Package elfutils-libelf.x86_64 0:0.172-2.el7 will be updated
+---> Package elfutils-libelf.x86_64 0:0.176-2.el7 will be an update
+---> Package elfutils-libs.x86_64 0:0.172-2.el7 will be updated
+---> Package elfutils-libs.x86_64 0:0.176-2.el7 will be an update
+---> Package ethtool.x86_64 2:4.8-9.el7 will be updated
+---> Package ethtool.x86_64 2:4.8-10.el7 will be an update
+---> Package fence-agents-all.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-all.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-amt-ws.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-amt-ws.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-apc.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-apc.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-apc-snmp.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-apc-snmp.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-bladecenter.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-bladecenter.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-brocade.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-brocade.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-cisco-mds.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-cisco-mds.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-cisco-ucs.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-cisco-ucs.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-common.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-common.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-compute.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-compute.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-drac5.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-drac5.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-eaton-snmp.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-eaton-snmp.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-emerson.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-emerson.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-eps.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-eps.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-heuristics-ping.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-heuristics-ping.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-hpblade.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-hpblade.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-ibmblade.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-ibmblade.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-ifmib.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-ifmib.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-ilo-moonshot.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-ilo-moonshot.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-ilo-mp.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-ilo-mp.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-ilo-ssh.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-ilo-ssh.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-ilo2.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-ilo2.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-intelmodular.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-intelmodular.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-ipdu.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-ipdu.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-ipmilan.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-ipmilan.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-kdump.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-kdump.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-mpath.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-mpath.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-redfish.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-redfish.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-rhevm.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-rhevm.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-rsa.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-rsa.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-rsb.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-rsb.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-sbd.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-sbd.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-scsi.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-scsi.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-vmware-rest.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-vmware-rest.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-vmware-soap.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-vmware-soap.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-agents-wti.x86_64 0:4.2.1-11.el7_6.8 will be updated
+---> Package fence-agents-wti.x86_64 0:4.2.1-24.el7 will be an update
+---> Package fence-virt.x86_64 0:0.3.2-13.el7 will be updated
+---> Package fence-virt.x86_64 0:0.3.2-14.el7 will be an update
+---> Package firewalld-filesystem.noarch 0:0.5.3-5.el7 will be updated
+---> Package firewalld-filesystem.noarch 0:0.6.3-2.el7_7.1 will be an update
+---> Package freetype.x86_64 0:2.8-12.el7_6.1 will be updated
+---> Package freetype.x86_64 0:2.8-14.el7 will be an update
+---> Package gdisk.x86_64 0:0.8.10-2.el7 will be updated
+---> Package gdisk.x86_64 0:0.8.10-3.el7 will be an update
+---> Package glib2.x86_64 0:2.56.1-4.el7_6 will be updated
+---> Package glib2.x86_64 0:2.56.1-5.el7 will be an update
+---> Package glibc.x86_64 0:2.17-260.el7_6.6 will be updated
+---> Package glibc.x86_64 0:2.17-292.el7 will be an update
+---> Package glibc-common.x86_64 0:2.17-260.el7_6.6 will be updated
+---> Package glibc-common.x86_64 0:2.17-292.el7 will be an update
+---> Package glusterfs.x86_64 0:3.12.2-18.el7 will be updated
+---> Package glusterfs.x86_64 0:3.12.2-47.2.el7 will be an update
+---> Package glusterfs-api.x86_64 0:3.12.2-18.el7 will be updated
+---> Package glusterfs-api.x86_64 0:3.12.2-47.2.el7 will be an update
+---> Package glusterfs-cli.x86_64 0:3.12.2-18.el7 will be updated
+---> Package glusterfs-cli.x86_64 0:3.12.2-47.2.el7 will be an update
+---> Package glusterfs-client-xlators.x86_64 0:3.12.2-18.el7 will be updated
+---> Package glusterfs-client-xlators.x86_64 0:3.12.2-47.2.el7 will be an update
+---> Package glusterfs-libs.x86_64 0:3.12.2-18.el7 will be updated
+---> Package glusterfs-libs.x86_64 0:3.12.2-47.2.el7 will be an update
+---> Package grub2.x86_64 1:2.02-0.76.el7.centos.1 will be updated
+---> Package grub2.x86_64 1:2.02-0.80.el7.centos will be an update
+---> Package grub2-common.noarch 1:2.02-0.76.el7.centos.1 will be updated
+---> Package grub2-common.noarch 1:2.02-0.80.el7.centos will be an update
+---> Package grub2-efi-x64.x86_64 1:2.02-0.76.el7.centos.1 will be updated
+---> Package grub2-efi-x64.x86_64 1:2.02-0.80.el7.centos will be an update
+---> Package grub2-efi-x64-modules.noarch 1:2.02-0.76.el7.centos.1 will be updated
+---> Package grub2-efi-x64-modules.noarch 1:2.02-0.80.el7.centos will be an update
+---> Package grub2-pc.x86_64 1:2.02-0.76.el7.centos.1 will be updated
+---> Package grub2-pc.x86_64 1:2.02-0.80.el7.centos will be an update
+---> Package grub2-pc-modules.noarch 1:2.02-0.76.el7.centos.1 will be updated
+---> Package grub2-pc-modules.noarch 1:2.02-0.80.el7.centos will be an update
+---> Package grub2-tools.x86_64 1:2.02-0.76.el7.centos.1 will be updated
+---> Package grub2-tools.x86_64 1:2.02-0.80.el7.centos will be an update
+---> Package grub2-tools-extra.x86_64 1:2.02-0.76.el7.centos.1 will be updated
+---> Package grub2-tools-extra.x86_64 1:2.02-0.80.el7.centos will be an update
+---> Package grub2-tools-minimal.x86_64 1:2.02-0.76.el7.centos.1 will be updated
+---> Package grub2-tools-minimal.x86_64 1:2.02-0.80.el7.centos will be an update
+---> Package grubby.x86_64 0:8.28-25.el7 will be updated
+---> Package grubby.x86_64 0:8.28-26.el7 will be an update
+---> Package gssproxy.x86_64 0:0.7.0-21.el7 will be updated
+---> Package gssproxy.x86_64 0:0.7.0-26.el7 will be an update
+---> Package http-parser.x86_64 0:2.7.1-5.el7_4 will be updated
+---> Package http-parser.x86_64 0:2.7.1-8.el7 will be an update
+---> Package hwdata.x86_64 0:0.252-9.1.el7 will be updated
+---> Package hwdata.x86_64 0:0.252-9.3.el7 will be an update
+---> Package initscripts.x86_64 0:9.49.46-1.el7 will be updated
+---> Package initscripts.x86_64 0:9.49.47-1.el7 will be an update
+---> Package ipa-client.x86_64 0:4.6.4-10.el7.centos.6 will be updated
+---> Package ipa-client.x86_64 0:4.6.5-11.el7.centos will be an update
+---> Package ipa-client-common.noarch 0:4.6.4-10.el7.centos.6 will be updated
+---> Package ipa-client-common.noarch 0:4.6.5-11.el7.centos will be an update
+---> Package ipa-common.noarch 0:4.6.4-10.el7.centos.6 will be updated
+---> Package ipa-common.noarch 0:4.6.5-11.el7.centos will be an update
+---> Package iproute.x86_64 0:4.11.0-14.el7_6.2 will be updated
+---> Package iproute.x86_64 0:4.11.0-25.el7 will be an update
+---> Package iptables.x86_64 0:1.4.21-28.el7 will be updated
+---> Package iptables.x86_64 0:1.4.21-33.el7 will be an update
+---> Package iptables-services.x86_64 0:1.4.21-28.el7 will be updated
+---> Package iptables-services.x86_64 0:1.4.21-33.el7 will be an update
+---> Package ipxe-bootimgs.noarch 0:20170123-1.git4e85b27.el7_4.1 will be updated
+---> Package ipxe-bootimgs.noarch 0:20180825-2.git133f4c.el7 will be an update
+---> Package irqbalance.x86_64 3:1.0.7-11.el7 will be updated
+---> Package irqbalance.x86_64 3:1.0.7-12.el7 will be an update
+---> Package iscsi-initiator-utils.x86_64 0:6.2.0.874-10.el7 will be updated
+---> Package iscsi-initiator-utils.x86_64 0:6.2.0.874-11.el7 will be an update
+---> Package iscsi-initiator-utils-iscsiuio.x86_64 0:6.2.0.874-10.el7 will be updated
+---> Package iscsi-initiator-utils-iscsiuio.x86_64 0:6.2.0.874-11.el7 will be an update
+---> Package iwl7265-firmware.noarch 0:22.0.7.0-69.el7 will be updated
+---> Package iwl7265-firmware.noarch 0:22.0.7.0-72.el7 will be an update
+---> Package kernel.x86_64 0:3.10.0-1062.1.1.el7 will be installed
+--> Processing Dependency: linux-firmware >= 20190429-72 for package: kernel-3.10.0-1062.1.1.el7.x86_64
+---> Package kernel-tools.x86_64 0:3.10.0-957.27.2.el7 will be updated
+---> Package kernel-tools.x86_64 0:3.10.0-1062.1.1.el7 will be an update
+---> Package kernel-tools-libs.x86_64 0:3.10.0-957.27.2.el7 will be updated
+---> Package kernel-tools-libs.x86_64 0:3.10.0-1062.1.1.el7 will be an update
+---> Package kexec-tools.x86_64 0:2.0.15-21.el7_6.4 will be updated
+---> Package kexec-tools.x86_64 0:2.0.15-33.el7 will be an update
+---> Package kmod.x86_64 0:20-23.el7 will be updated
+---> Package kmod.x86_64 0:20-25.el7 will be an update
+---> Package kmod-libs.x86_64 0:20-23.el7 will be updated
+---> Package kmod-libs.x86_64 0:20-25.el7 will be an update
+---> Package kpartx.x86_64 0:0.4.9-123.el7 will be updated
+---> Package kpartx.x86_64 0:0.4.9-127.el7 will be an update
+---> Package krb5-libs.x86_64 0:1.15.1-37.el7_6 will be updated
+---> Package krb5-libs.x86_64 0:1.15.1-37.el7_7.2 will be an update
+---> Package krb5-workstation.x86_64 0:1.15.1-37.el7_6 will be updated
+---> Package krb5-workstation.x86_64 0:1.15.1-37.el7_7.2 will be an update
+---> Package libblkid.x86_64 0:2.23.2-59.el7_6.1 will be updated
+---> Package libblkid.x86_64 0:2.23.2-61.el7 will be an update
+---> Package libcap.x86_64 0:2.22-9.el7 will be updated
+---> Package libcap.x86_64 0:2.22-10.el7 will be an update
+---> Package libcgroup.x86_64 0:0.41-20.el7 will be updated
+---> Package libcgroup.x86_64 0:0.41-21.el7 will be an update
+---> Package libcom_err.x86_64 0:1.42.9-13.el7 will be updated
+---> Package libcom_err.x86_64 0:1.42.9-16.el7 will be an update
+---> Package libcurl.x86_64 0:7.29.0-51.el7_6.3 will be updated
+---> Package libcurl.x86_64 0:7.29.0-54.el7 will be an update
+---> Package libdb.x86_64 0:5.3.21-24.el7 will be updated
+---> Package libdb.x86_64 0:5.3.21-25.el7 will be an update
+---> Package libdb-utils.x86_64 0:5.3.21-24.el7 will be updated
+---> Package libdb-utils.x86_64 0:5.3.21-25.el7 will be an update
+---> Package libgcc.x86_64 0:4.8.5-36.el7_6.2 will be updated
+---> Package libgcc.x86_64 0:4.8.5-39.el7 will be an update
+---> Package libgomp.x86_64 0:4.8.5-36.el7_6.2 will be updated
+---> Package libgomp.x86_64 0:4.8.5-39.el7 will be an update
+---> Package libibverbs.x86_64 0:17.2-3.el7 will be updated
+---> Package libibverbs.x86_64 0:22.1-3.el7 will be an update
+---> Package libicu.x86_64 0:50.1.2-17.el7 will be updated
+---> Package libicu.x86_64 0:50.2-3.el7 will be an update
+---> Package libipa_hbac.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package libipa_hbac.x86_64 0:1.16.4-21.el7 will be an update
+---> Package libkadm5.x86_64 0:1.15.1-37.el7_6 will be updated
+---> Package libkadm5.x86_64 0:1.15.1-37.el7_7.2 will be an update
+---> Package libldb.x86_64 0:1.3.4-1.el7 will be updated
+---> Package libldb.x86_64 0:1.4.2-1.el7 will be an update
+---> Package libmount.x86_64 0:2.23.2-59.el7_6.1 will be updated
+---> Package libmount.x86_64 0:2.23.2-61.el7 will be an update
+---> Package libndp.x86_64 0:1.2-7.el7 will be updated
+---> Package libndp.x86_64 0:1.2-9.el7 will be an update
+---> Package librdmacm.x86_64 0:17.2-3.el7 will be updated
+---> Package librdmacm.x86_64 0:22.1-3.el7 will be an update
+---> Package libsmartcols.x86_64 0:2.23.2-59.el7_6.1 will be updated
+---> Package libsmartcols.x86_64 0:2.23.2-61.el7 will be an update
+---> Package libsmbclient.x86_64 0:4.8.3-6.el7_6 will be updated
+---> Package libsmbclient.x86_64 0:4.9.1-6.el7 will be an update
+---> Package libss.x86_64 0:1.42.9-13.el7 will be updated
+---> Package libss.x86_64 0:1.42.9-16.el7 will be an update
+---> Package libssh2.x86_64 0:1.4.3-12.el7_6.3 will be updated
+---> Package libssh2.x86_64 0:1.8.0-3.el7 will be an update
+---> Package libsss_autofs.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package libsss_autofs.x86_64 0:1.16.4-21.el7 will be an update
+---> Package libsss_certmap.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package libsss_certmap.x86_64 0:1.16.4-21.el7 will be an update
+---> Package libsss_idmap.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package libsss_idmap.x86_64 0:1.16.4-21.el7 will be an update
+---> Package libsss_nss_idmap.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package libsss_nss_idmap.x86_64 0:1.16.4-21.el7 will be an update
+---> Package libsss_sudo.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package libsss_sudo.x86_64 0:1.16.4-21.el7 will be an update
+---> Package libstdc++.x86_64 0:4.8.5-36.el7_6.2 will be updated
+---> Package libstdc++.x86_64 0:4.8.5-39.el7 will be an update
+---> Package libtalloc.x86_64 0:2.1.13-1.el7 will be updated
+---> Package libtalloc.x86_64 0:2.1.14-1.el7 will be an update
+---> Package libtdb.x86_64 0:1.3.15-1.el7 will be updated
+---> Package libtdb.x86_64 0:1.3.16-1.el7 will be an update
+---> Package libteam.x86_64 0:1.27-6.el7_6.1 will be updated
+---> Package libteam.x86_64 0:1.27-9.el7 will be an update
+---> Package libtevent.x86_64 0:0.9.36-1.el7 will be updated
+---> Package libtevent.x86_64 0:0.9.37-1.el7 will be an update
+---> Package libtirpc.x86_64 0:0.2.4-0.15.el7 will be updated
+---> Package libtirpc.x86_64 0:0.2.4-0.16.el7 will be an update
+---> Package libuuid.x86_64 0:2.23.2-59.el7_6.1 will be updated
+---> Package libuuid.x86_64 0:2.23.2-61.el7 will be an update
+---> Package libvirt.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-bash-completion.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-bash-completion.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-client.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-client.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-config-network.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-config-network.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-config-nwfilter.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-config-nwfilter.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-driver-interface.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-driver-interface.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-driver-lxc.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-driver-lxc.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-driver-network.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-driver-network.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-driver-nodedev.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-driver-nodedev.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-driver-nwfilter.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-driver-nwfilter.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-driver-qemu.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-driver-qemu.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-driver-secret.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-driver-secret.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-driver-storage.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-driver-storage.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-driver-storage-core.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-driver-storage-core.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-driver-storage-disk.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-driver-storage-disk.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-driver-storage-gluster.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-driver-storage-gluster.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-driver-storage-iscsi.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-driver-storage-iscsi.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-driver-storage-logical.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-driver-storage-logical.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-driver-storage-mpath.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-driver-storage-mpath.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-driver-storage-rbd.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-driver-storage-rbd.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-daemon-driver-storage-scsi.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-daemon-driver-storage-scsi.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libvirt-libs.x86_64 0:4.5.0-10.el7_6.12 will be updated
+---> Package libvirt-libs.x86_64 0:4.5.0-23.el7_7.1 will be an update
+---> Package libwbclient.x86_64 0:4.8.3-6.el7_6 will be updated
+---> Package libwbclient.x86_64 0:4.9.1-6.el7 will be an update
+---> Package lm_sensors-libs.x86_64 0:3.4.0-6.20160601gitf9185e5.el7 will be updated
+---> Package lm_sensors-libs.x86_64 0:3.4.0-8.20160601gitf9185e5.el7 will be an update
+---> Package lshw.x86_64 0:B.02.18-12.el7 will be updated
+---> Package lshw.x86_64 0:B.02.18-13.el7 will be an update
+---> Package lvm2.x86_64 7:2.02.180-10.el7_6.8 will be updated
+---> Package lvm2.x86_64 7:2.02.185-2.el7 will be an update
+---> Package lvm2-libs.x86_64 7:2.02.180-10.el7_6.8 will be updated
+---> Package lvm2-libs.x86_64 7:2.02.185-2.el7 will be an update
+---> Package lz4.x86_64 0:1.7.5-2.el7 will be updated
+---> Package lz4.x86_64 0:1.7.5-3.el7 will be an update
+---> Package make.x86_64 1:3.82-23.el7 will be updated
+---> Package make.x86_64 1:3.82-24.el7 will be an update
+---> Package microcode_ctl.x86_64 2:2.1-47.5.el7_6 will be updated
+---> Package microcode_ctl.x86_64 2:2.1-53.el7 will be an update
+---> Package net-snmp.x86_64 1:5.7.2-38.el7_6.2 will be updated
+---> Package net-snmp.x86_64 1:5.7.2-43.el7 will be an update
+---> Package net-snmp-agent-libs.x86_64 1:5.7.2-38.el7_6.2 will be updated
+---> Package net-snmp-agent-libs.x86_64 1:5.7.2-43.el7 will be an update
+---> Package net-snmp-libs.x86_64 1:5.7.2-38.el7_6.2 will be updated
+---> Package net-snmp-libs.x86_64 1:5.7.2-43.el7 will be an update
+---> Package net-snmp-utils.x86_64 1:5.7.2-38.el7_6.2 will be updated
+---> Package net-snmp-utils.x86_64 1:5.7.2-43.el7 will be an update
+---> Package net-tools.x86_64 0:2.0-0.24.20131004git.el7 will be updated
+---> Package net-tools.x86_64 0:2.0-0.25.20131004git.el7 will be an update
+---> Package nfs-utils.x86_64 1:1.3.0-0.61.el7 will be updated
+---> Package nfs-utils.x86_64 1:1.3.0-0.65.el7 will be an update
+---> Package nmap-ncat.x86_64 2:6.40-16.el7 will be updated
+---> Package nmap-ncat.x86_64 2:6.40-19.el7 will be an update
+---> Package nspr.x86_64 0:4.19.0-1.el7_5 will be updated
+---> Package nspr.x86_64 0:4.21.0-1.el7 will be an update
+---> Package nss.x86_64 0:3.36.0-7.1.el7_6 will be updated
+---> Package nss.x86_64 0:3.44.0-4.el7 will be an update
+---> Package nss-pem.x86_64 0:1.0.3-5.el7_6.1 will be updated
+---> Package nss-pem.x86_64 0:1.0.3-7.el7 will be an update
+---> Package nss-softokn.x86_64 0:3.36.0-5.el7_5 will be updated
+---> Package nss-softokn.x86_64 0:3.44.0-5.el7 will be an update
+---> Package nss-softokn-freebl.x86_64 0:3.36.0-5.el7_5 will be updated
+---> Package nss-softokn-freebl.x86_64 0:3.44.0-5.el7 will be an update
+---> Package nss-sysinit.x86_64 0:3.36.0-7.1.el7_6 will be updated
+---> Package nss-sysinit.x86_64 0:3.44.0-4.el7 will be an update
+---> Package nss-tools.x86_64 0:3.36.0-7.1.el7_6 will be updated
+---> Package nss-tools.x86_64 0:3.44.0-4.el7 will be an update
+---> Package nss-util.x86_64 0:3.36.0-1.1.el7_6 will be updated
+---> Package nss-util.x86_64 0:3.44.0-3.el7 will be an update
+---> Package ntp.x86_64 0:4.2.6p5-28.el7.centos will be updated
+---> Package ntp.x86_64 0:4.2.6p5-29.el7.centos will be an update
+---> Package ntpdate.x86_64 0:4.2.6p5-28.el7.centos will be updated
+---> Package ntpdate.x86_64 0:4.2.6p5-29.el7.centos will be an update
+---> Package numactl.x86_64 0:2.0.9-7.el7 will be updated
+---> Package numactl.x86_64 0:2.0.12-3.el7 will be an update
+---> Package numactl-libs.x86_64 0:2.0.9-7.el7 will be updated
+---> Package numactl-libs.x86_64 0:2.0.12-3.el7 will be an update
+---> Package oci-umount.x86_64 2:2.5-1.el7_6 will be updated
+---> Package oci-umount.x86_64 2:2.5-3.el7 will be an update
+---> Package openssh.x86_64 0:7.4p1-16.el7 will be updated
+---> Package openssh.x86_64 0:7.4p1-21.el7 will be an update
+---> Package openssh-clients.x86_64 0:7.4p1-16.el7 will be updated
+---> Package openssh-clients.x86_64 0:7.4p1-21.el7 will be an update
+---> Package openssh-server.x86_64 0:7.4p1-16.el7 will be updated
+---> Package openssh-server.x86_64 0:7.4p1-21.el7 will be an update
+---> Package openssl.x86_64 1:1.0.2k-16.el7_6.1 will be updated
+---> Package openssl.x86_64 1:1.0.2k-19.el7 will be an update
+---> Package openssl-libs.x86_64 1:1.0.2k-16.el7_6.1 will be updated
+---> Package openssl-libs.x86_64 1:1.0.2k-19.el7 will be an update
+---> Package openssl-perl.x86_64 1:1.0.2k-16.el7_6.1 will be updated
+---> Package openssl-perl.x86_64 1:1.0.2k-19.el7 will be an update
+---> Package pacemaker.x86_64 0:1.1.19-8.el7_6.4 will be updated
+---> Package pacemaker.x86_64 0:1.1.20-5.el7_7.1 will be an update
+---> Package pacemaker-cli.x86_64 0:1.1.19-8.el7_6.4 will be updated
+---> Package pacemaker-cli.x86_64 0:1.1.20-5.el7_7.1 will be an update
+---> Package pacemaker-cluster-libs.x86_64 0:1.1.19-8.el7_6.4 will be updated
+---> Package pacemaker-cluster-libs.x86_64 0:1.1.20-5.el7_7.1 will be an update
+---> Package pacemaker-libs.x86_64 0:1.1.19-8.el7_6.4 will be updated
+---> Package pacemaker-libs.x86_64 0:1.1.20-5.el7_7.1 will be an update
+---> Package pacemaker-remote.x86_64 0:1.1.19-8.el7_6.4 will be updated
+---> Package pacemaker-remote.x86_64 0:1.1.20-5.el7_7.1 will be an update
+---> Package parted.x86_64 0:3.1-29.el7 will be updated
+---> Package parted.x86_64 0:3.1-31.el7 will be an update
+---> Package passwd.x86_64 0:0.79-4.el7 will be updated
+---> Package passwd.x86_64 0:0.79-5.el7 will be an update
+---> Package pcs.x86_64 0:0.9.165-6.el7.centos.2 will be updated
+---> Package pcs.x86_64 0:0.9.167-3.el7.centos.1 will be an update
+--> Processing Dependency: redhat-logos for package: pcs-0.9.167-3.el7.centos.1.x86_64
+---> Package podman.x86_64 0:1.4.4-2.el7.centos will be updated
+---> Package podman.x86_64 0:1.4.4-4.el7.centos will be an update
+---> Package policycoreutils.x86_64 0:2.5-29.el7_6.1 will be updated
+---> Package policycoreutils.x86_64 0:2.5-33.el7 will be an update
+---> Package policycoreutils-python.x86_64 0:2.5-29.el7_6.1 will be updated
+---> Package policycoreutils-python.x86_64 0:2.5-33.el7 will be an update
+---> Package polkit.x86_64 0:0.112-18.el7_6.1 will be updated
+---> Package polkit.x86_64 0:0.112-22.el7_7.1 will be an update
+---> Package procps-ng.x86_64 0:3.3.10-23.el7 will be updated
+---> Package procps-ng.x86_64 0:3.3.10-26.el7 will be an update
+---> Package psmisc.x86_64 0:22.20-15.el7 will be updated
+---> Package psmisc.x86_64 0:22.20-16.el7 will be an update
+---> Package python.x86_64 0:2.7.5-80.el7_6 will be updated
+---> Package python.x86_64 0:2.7.5-86.el7 will be an update
+---> Package python-ipaddr.noarch 0:2.1.11-1.el7 will be updated
+---> Package python-ipaddr.noarch 0:2.1.11-2.el7 will be an update
+---> Package python-libipa_hbac.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package python-libipa_hbac.x86_64 0:1.16.4-21.el7 will be an update
+---> Package python-libs.x86_64 0:2.7.5-80.el7_6 will be updated
+---> Package python-libs.x86_64 0:2.7.5-86.el7 will be an update
+---> Package python-linux-procfs.noarch 0:0.4.9-4.el7 will be updated
+---> Package python-linux-procfs.noarch 0:0.4.11-4.el7 will be an update
+---> Package python-perf.x86_64 0:3.10.0-957.27.2.el7 will be updated
+---> Package python-perf.x86_64 0:3.10.0-1062.1.1.el7 will be an update
+---> Package python-sss-murmur.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package python-sss-murmur.x86_64 0:1.16.4-21.el7 will be an update
+---> Package python-sssdconfig.noarch 0:1.16.2-13.el7_6.8 will be updated
+---> Package python-sssdconfig.noarch 0:1.16.4-21.el7 will be an update
+---> Package python2-ipaclient.noarch 0:4.6.4-10.el7.centos.6 will be updated
+---> Package python2-ipaclient.noarch 0:4.6.5-11.el7.centos will be an update
+---> Package python2-ipalib.noarch 0:4.6.4-10.el7.centos.6 will be updated
+---> Package python2-ipalib.noarch 0:4.6.5-11.el7.centos will be an update
+---> Package python2-subprocess32.x86_64 0:3.2.6-13.el7 will be updated
+---> Package python2-subprocess32.x86_64 0:3.2.6-14.el7 will be an update
+---> Package qemu-guest-agent.x86_64 10:2.12.0-2.el7 will be updated
+---> Package qemu-guest-agent.x86_64 10:2.12.0-3.el7 will be an update
+---> Package qemu-img-ev.x86_64 10:2.12.0-18.el7_6.7.1 will be updated
+---> Package qemu-img-ev.x86_64 10:2.12.0-33.1.el7 will be an update
+---> Package quota.x86_64 1:4.01-17.el7 will be updated
+---> Package quota.x86_64 1:4.01-19.el7 will be an update
+---> Package quota-nls.noarch 1:4.01-17.el7 will be updated
+---> Package quota-nls.noarch 1:4.01-19.el7 will be an update
+---> Package rdma-core.x86_64 0:17.2-3.el7 will be updated
+---> Package rdma-core.x86_64 0:22.1-3.el7 will be an update
+---> Package readline.x86_64 0:6.2-10.el7 will be updated
+---> Package readline.x86_64 0:6.2-11.el7 will be an update
+---> Package resource-agents.x86_64 0:4.1.1-12.el7_6.19 will be updated
+---> Package resource-agents.x86_64 0:4.1.1-30.el7_7.2 will be an update
+---> Package rpcbind.x86_64 0:0.2.0-47.el7 will be updated
+---> Package rpcbind.x86_64 0:0.2.0-48.el7 will be an update
+---> Package rpm.x86_64 0:4.11.3-35.el7 will be updated
+---> Package rpm.x86_64 0:4.11.3-40.el7 will be an update
+---> Package rpm-build-libs.x86_64 0:4.11.3-35.el7 will be updated
+---> Package rpm-build-libs.x86_64 0:4.11.3-40.el7 will be an update
+---> Package rpm-libs.x86_64 0:4.11.3-35.el7 will be updated
+---> Package rpm-libs.x86_64 0:4.11.3-40.el7 will be an update
+---> Package rpm-python.x86_64 0:4.11.3-35.el7 will be updated
+---> Package rpm-python.x86_64 0:4.11.3-40.el7 will be an update
+---> Package rsyslog.x86_64 0:8.24.0-34.el7 will be updated
+---> Package rsyslog.x86_64 0:8.24.0-41.el7_7 will be an update
+---> Package ruby.x86_64 0:2.0.0.648-35.el7_6 will be updated
+---> Package ruby.x86_64 0:2.0.0.648-36.el7 will be an update
+---> Package ruby-irb.noarch 0:2.0.0.648-35.el7_6 will be updated
+---> Package ruby-irb.noarch 0:2.0.0.648-36.el7 will be an update
+---> Package ruby-libs.x86_64 0:2.0.0.648-35.el7_6 will be updated
+---> Package ruby-libs.x86_64 0:2.0.0.648-36.el7 will be an update
+---> Package rubygem-bigdecimal.x86_64 0:1.2.0-35.el7_6 will be updated
+---> Package rubygem-bigdecimal.x86_64 0:1.2.0-36.el7 will be an update
+---> Package rubygem-io-console.x86_64 0:0.4.2-35.el7_6 will be updated
+---> Package rubygem-io-console.x86_64 0:0.4.2-36.el7 will be an update
+---> Package rubygem-json.x86_64 0:1.7.7-35.el7_6 will be updated
+---> Package rubygem-json.x86_64 0:1.7.7-36.el7 will be an update
+---> Package rubygem-psych.x86_64 0:2.0.0-35.el7_6 will be updated
+---> Package rubygem-psych.x86_64 0:2.0.0-36.el7 will be an update
+---> Package rubygem-rdoc.noarch 0:4.0.0-35.el7_6 will be updated
+---> Package rubygem-rdoc.noarch 0:4.0.0-36.el7 will be an update
+---> Package rubygems.noarch 0:2.0.14.1-35.el7_6 will be updated
+---> Package rubygems.noarch 0:2.0.14.1-36.el7 will be an update
+---> Package runc.x86_64 0:1.0.0-64.rc8.el7.centos will be updated
+---> Package runc.x86_64 0:1.0.0-65.rc8.el7.centos will be an update
+---> Package samba-client-libs.x86_64 0:4.8.3-6.el7_6 will be updated
+---> Package samba-client-libs.x86_64 0:4.9.1-6.el7 will be an update
+---> Package samba-common.noarch 0:4.8.3-6.el7_6 will be updated
+---> Package samba-common.noarch 0:4.9.1-6.el7 will be an update
+---> Package samba-common-libs.x86_64 0:4.8.3-6.el7_6 will be updated
+---> Package samba-common-libs.x86_64 0:4.9.1-6.el7 will be an update
+---> Package selinux-policy.noarch 0:3.13.1-229.el7_6.15 will be updated
+---> Package selinux-policy.noarch 0:3.13.1-252.el7.1 will be an update
+---> Package selinux-policy-targeted.noarch 0:3.13.1-229.el7_6.15 will be updated
+---> Package selinux-policy-targeted.noarch 0:3.13.1-252.el7.1 will be an update
+---> Package sg3_utils.x86_64 0:1.37-17.el7 will be updated
+---> Package sg3_utils.x86_64 0:1.37-18.el7_7.1 will be an update
+---> Package sg3_utils-libs.x86_64 0:1.37-17.el7 will be updated
+---> Package sg3_utils-libs.x86_64 0:1.37-18.el7_7.1 will be an update
+---> Package shadow-utils.x86_64 2:4.1.5.1-25.el7_6.1 will be updated
+---> Package shadow-utils.x86_64 2:4.6-5.el7 will be an update
+---> Package sos.noarch 0:3.6-19.el7.centos will be updated
+---> Package sos.noarch 0:3.7-6.el7.centos will be an update
+---> Package sssd.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package sssd.x86_64 0:1.16.4-21.el7 will be an update
+---> Package sssd-ad.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package sssd-ad.x86_64 0:1.16.4-21.el7 will be an update
+---> Package sssd-client.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package sssd-client.x86_64 0:1.16.4-21.el7 will be an update
+---> Package sssd-common.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package sssd-common.x86_64 0:1.16.4-21.el7 will be an update
+---> Package sssd-common-pac.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package sssd-common-pac.x86_64 0:1.16.4-21.el7 will be an update
+---> Package sssd-ipa.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package sssd-ipa.x86_64 0:1.16.4-21.el7 will be an update
+---> Package sssd-krb5.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package sssd-krb5.x86_64 0:1.16.4-21.el7 will be an update
+---> Package sssd-krb5-common.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package sssd-krb5-common.x86_64 0:1.16.4-21.el7 will be an update
+---> Package sssd-ldap.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package sssd-ldap.x86_64 0:1.16.4-21.el7 will be an update
+---> Package sssd-proxy.x86_64 0:1.16.2-13.el7_6.8 will be updated
+---> Package sssd-proxy.x86_64 0:1.16.4-21.el7 will be an update
+---> Package subscription-manager-rhsm-certificates.x86_64 0:1.21.10-3.el7.centos will be updated
+---> Package subscription-manager-rhsm-certificates.x86_64 0:1.24.13-3.el7.centos will be an update
+---> Package sudo.x86_64 0:1.8.23-3.el7 will be updated
+---> Package sudo.x86_64 0:1.8.23-4.el7 will be an update
+---> Package systemd.x86_64 0:219-62.el7_6.9 will be updated
+---> Package systemd.x86_64 0:219-67.el7_7.1 will be an update
+---> Package systemd-libs.x86_64 0:219-62.el7_6.9 will be updated
+---> Package systemd-libs.x86_64 0:219-67.el7_7.1 will be an update
+---> Package systemd-sysv.x86_64 0:219-62.el7_6.9 will be updated
+---> Package systemd-sysv.x86_64 0:219-67.el7_7.1 will be an update
+---> Package tcpdump.x86_64 14:4.9.2-3.el7 will be updated
+---> Package tcpdump.x86_64 14:4.9.2-4.el7 will be an update
+---> Package teamd.x86_64 0:1.27-6.el7_6.1 will be updated
+---> Package teamd.x86_64 0:1.27-9.el7 will be an update
+---> Package tmpwatch.x86_64 0:2.11-5.el7 will be updated
+---> Package tmpwatch.x86_64 0:2.11-6.el7 will be an update
+---> Package tuned.noarch 0:2.10.0-6.el7_6.4 will be updated
+---> Package tuned.noarch 0:2.11.0-5.el7_7.1 will be an update
+---> Package tuned-profiles-cpu-partitioning.noarch 0:2.10.0-6.el7_6.4 will be updated
+---> Package tuned-profiles-cpu-partitioning.noarch 0:2.11.0-5.el7_7.1 will be an update
+---> Package tzdata.noarch 0:2019b-1.el7 will be updated
+---> Package tzdata.noarch 0:2019c-1.el7 will be an update
+---> Package util-linux.x86_64 0:2.23.2-59.el7_6.1 will be updated
+---> Package util-linux.x86_64 0:2.23.2-61.el7 will be an update
+---> Package vim-minimal.x86_64 2:7.4.160-6.el7_6 will be updated
+---> Package vim-minimal.x86_64 2:7.4.629-6.el7 will be an update
+---> Package xfsprogs.x86_64 0:4.5.0-19.el7_6 will be updated
+---> Package xfsprogs.x86_64 0:4.5.0-20.el7 will be an update
+---> Package yum.noarch 0:3.4.3-161.el7.centos will be updated
+---> Package yum.noarch 0:3.4.3-163.el7.centos will be an update
+---> Package yum-plugin-fastestmirror.noarch 0:1.1.31-50.el7 will be updated
+---> Package yum-plugin-fastestmirror.noarch 0:1.1.31-52.el7 will be an update
+---> Package yum-utils.noarch 0:1.1.31-50.el7 will be updated
+---> Package yum-utils.noarch 0:1.1.31-52.el7 will be an update
+--> Running transaction check
+---> Package OpenIPMI.x86_64 0:2.0.27-1.el7 will be installed
+--> Processing Dependency: OpenIPMI-libs = 2.0.27-1.el7 for package: OpenIPMI-2.0.27-1.el7.x86_64
+--> Processing Dependency: libOpenIPMIutils.so.0()(64bit) for package: OpenIPMI-2.0.27-1.el7.x86_64
+--> Processing Dependency: libOpenIPMIui.so.1()(64bit) for package: OpenIPMI-2.0.27-1.el7.x86_64
+--> Processing Dependency: libOpenIPMIposix.so.0()(64bit) for package: OpenIPMI-2.0.27-1.el7.x86_64
+--> Processing Dependency: libOpenIPMIglib.so.0()(64bit) for package: OpenIPMI-2.0.27-1.el7.x86_64
+--> Processing Dependency: libOpenIPMIcmdlang.so.0()(64bit) for package: OpenIPMI-2.0.27-1.el7.x86_64
+--> Processing Dependency: libOpenIPMI.so.0()(64bit) for package: OpenIPMI-2.0.27-1.el7.x86_64
+---> Package bind-export-libs.x86_64 32:9.11.4-9.P2.el7 will be installed
+---> Package centos-logos.noarch 0:70.0.6-3.el7.centos will be installed
+---> Package geoipupdate.x86_64 0:2.5.0-1.el7 will be installed
+---> Package linux-firmware.noarch 0:20190429-72.gitddde598.el7 will be installed
+--> Running transaction check
+---> Package OpenIPMI-libs.x86_64 0:2.0.27-1.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                            Arch   Version                Repository
+                                                                           Size
+================================================================================
+Installing:
+ kernel                             x86_64 3.10.0-1062.1.1.el7    updates  50 M
+Updating:
+ GeoIP                              x86_64 1.5.0-14.el7           base    1.5 M
+ OpenIPMI-modalias                  x86_64 2.0.27-1.el7           base     16 k
+ atomic-registries                  x86_64 1:1.22.1-29.gitb507039.el7
+                                                                  extras   35 k
+ audit                              x86_64 2.8.5-4.el7            base    256 k
+ audit-libs                         x86_64 2.8.5-4.el7            base    102 k
+ audit-libs-python                  x86_64 2.8.5-4.el7            base     76 k
+ augeas-libs                        x86_64 1.4.0-9.el7            base    356 k
+ autofs                             x86_64 1:5.0.7-106.el7        base    835 k
+ bash                               x86_64 4.2.46-33.el7          base    1.0 M
+ bind-libs                          x86_64 32:9.11.4-9.P2.el7     base    154 k
+ bind-libs-lite                     x86_64 32:9.11.4-9.P2.el7     base    1.1 M
+ bind-license                       noarch 32:9.11.4-9.P2.el7     base     88 k
+ bind-utils                         x86_64 32:9.11.4-9.P2.el7     base    258 k
+ binutils                           x86_64 2.27-41.base.el7       base    5.9 M
+ biosdevname                        x86_64 0.7.3-2.el7            base     38 k
+ centos-release                     x86_64 7-7.1908.0.el7.centos  base     26 k
+ certmonger                         x86_64 0.78.4-11.el7          base    603 k
+ chrony                             x86_64 3.4-1.el7              base    251 k
+ cloud-init                         x86_64 18.5-3.el7.centos      base    861 k
+ cloud-utils-growpart               noarch 0.29-5.el7             base     27 k
+ container-selinux                  noarch 2:2.107-3.el7          extras   39 k
+ containernetworking-plugins        x86_64 0.8.1-2.el7.centos     extras   16 M
+ containers-common                  x86_64 1:0.1.37-3.el7.centos  extras   21 k
+ coreutils                          x86_64 8.22-24.el7            base    3.3 M
+ corosync                           x86_64 2.4.3-6.el7_7.1        updates 221 k
+ corosynclib                        x86_64 2.4.3-6.el7_7.1        updates 133 k
+ criu                               x86_64 3.12-2.el7             base    453 k
+ cronie                             x86_64 1.4.11-23.el7          base     92 k
+ cronie-anacron                     x86_64 1.4.11-23.el7          base     36 k
+ cryptsetup                         x86_64 2.0.3-5.el7            base    154 k
+ cryptsetup-libs                    x86_64 2.0.3-5.el7            base    338 k
+ cups-libs                          x86_64 1:1.6.3-40.el7         base    358 k
+ curl                               x86_64 7.29.0-54.el7          base    270 k
+ device-mapper                      x86_64 7:1.02.158-2.el7       base    294 k
+ device-mapper-event                x86_64 7:1.02.158-2.el7       base    189 k
+ device-mapper-event-libs           x86_64 7:1.02.158-2.el7       base    189 k
+ device-mapper-libs                 x86_64 7:1.02.158-2.el7       base    322 k
+ device-mapper-multipath            x86_64 0.4.9-127.el7          base    143 k
+ device-mapper-multipath-libs       x86_64 0.4.9-127.el7          base    265 k
+ device-mapper-persistent-data      x86_64 0.8.5-1.el7            base    423 k
+ dhclient                           x86_64 12:4.2.5-77.el7.centos base    285 k
+ dhcp-common                        x86_64 12:4.2.5-77.el7.centos base    176 k
+ dhcp-libs                          x86_64 12:4.2.5-77.el7.centos base    133 k
+ diffutils                          x86_64 3.3-5.el7              base    322 k
+ dmidecode                          x86_64 1:3.2-3.el7            base     81 k
+ dnsmasq                            x86_64 2.76-9.el7             base    278 k
+ docker                             x86_64 2:1.13.1-103.git7f2769b.el7.centos
+                                                                  extras   18 M
+ docker-client                      x86_64 2:1.13.1-103.git7f2769b.el7.centos
+                                                                  extras  3.9 M
+ docker-common                      x86_64 2:1.13.1-103.git7f2769b.el7.centos
+                                                                  extras   97 k
+ dpdk                               x86_64 18.11.2-1.el7          extras  1.6 M
+ dracut                             x86_64 033-564.el7            base    329 k
+ dracut-config-generic              x86_64 033-564.el7            base     59 k
+ dracut-config-rescue               x86_64 033-564.el7            base     60 k
+ dracut-network                     x86_64 033-564.el7            base    103 k
+ e2fsprogs                          x86_64 1.42.9-16.el7          base    700 k
+ e2fsprogs-libs                     x86_64 1.42.9-16.el7          base    167 k
+ efivar-libs                        x86_64 36-12.el7              base     88 k
+ elfutils-default-yama-scope        noarch 0.176-2.el7            base     33 k
+ elfutils-libelf                    x86_64 0.176-2.el7            base    194 k
+ elfutils-libs                      x86_64 0.176-2.el7            base    291 k
+ ethtool                            x86_64 2:4.8-10.el7           base    127 k
+ fence-agents-all                   x86_64 4.2.1-24.el7           base     23 k
+ fence-agents-amt-ws                x86_64 4.2.1-24.el7           base     27 k
+ fence-agents-apc                   x86_64 4.2.1-24.el7           base     27 k
+ fence-agents-apc-snmp              x86_64 4.2.1-24.el7           base     27 k
+ fence-agents-bladecenter           x86_64 4.2.1-24.el7           base     26 k
+ fence-agents-brocade               x86_64 4.2.1-24.el7           base     26 k
+ fence-agents-cisco-mds             x86_64 4.2.1-24.el7           base     26 k
+ fence-agents-cisco-ucs             x86_64 4.2.1-24.el7           base     26 k
+ fence-agents-common                x86_64 4.2.1-24.el7           base     76 k
+ fence-agents-compute               x86_64 4.2.1-24.el7           base     33 k
+ fence-agents-drac5                 x86_64 4.2.1-24.el7           base     26 k
+ fence-agents-eaton-snmp            x86_64 4.2.1-24.el7           base     27 k
+ fence-agents-emerson               x86_64 4.2.1-24.el7           base     25 k
+ fence-agents-eps                   x86_64 4.2.1-24.el7           base     26 k
+ fence-agents-heuristics-ping       x86_64 4.2.1-24.el7           base     26 k
+ fence-agents-hpblade               x86_64 4.2.1-24.el7           base     26 k
+ fence-agents-ibmblade              x86_64 4.2.1-24.el7           base     26 k
+ fence-agents-ifmib                 x86_64 4.2.1-24.el7           base     26 k
+ fence-agents-ilo-moonshot          x86_64 4.2.1-24.el7           base     25 k
+ fence-agents-ilo-mp                x86_64 4.2.1-24.el7           base     25 k
+ fence-agents-ilo-ssh               x86_64 4.2.1-24.el7           base     30 k
+ fence-agents-ilo2                  x86_64 4.2.1-24.el7           base     28 k
+ fence-agents-intelmodular          x86_64 4.2.1-24.el7           base     26 k
+ fence-agents-ipdu                  x86_64 4.2.1-24.el7           base     26 k
+ fence-agents-ipmilan               x86_64 4.2.1-24.el7           base     36 k
+ fence-agents-kdump                 x86_64 4.2.1-24.el7           base     37 k
+ fence-agents-mpath                 x86_64 4.2.1-24.el7           base     28 k
+ fence-agents-redfish               x86_64 4.2.1-24.el7           base     26 k
+ fence-agents-rhevm                 x86_64 4.2.1-24.el7           base     27 k
+ fence-agents-rsa                   x86_64 4.2.1-24.el7           base     25 k
+ fence-agents-rsb                   x86_64 4.2.1-24.el7           base     25 k
+ fence-agents-sbd                   x86_64 4.2.1-24.el7           base     27 k
+ fence-agents-scsi                  x86_64 4.2.1-24.el7           base     30 k
+ fence-agents-vmware-rest           x86_64 4.2.1-24.el7           base     26 k
+ fence-agents-vmware-soap           x86_64 4.2.1-24.el7           base     28 k
+ fence-agents-wti                   x86_64 4.2.1-24.el7           base     27 k
+ fence-virt                         x86_64 0.3.2-14.el7           base     41 k
+ firewalld-filesystem               noarch 0.6.3-2.el7_7.1        updates  50 k
+ freetype                           x86_64 2.8-14.el7             base    380 k
+ gdisk                              x86_64 0.8.10-3.el7           base    190 k
+ glib2                              x86_64 2.56.1-5.el7           base    2.5 M
+ glibc                              x86_64 2.17-292.el7           base    3.6 M
+ glibc-common                       x86_64 2.17-292.el7           base     11 M
+ glusterfs                          x86_64 3.12.2-47.2.el7        base    512 k
+ glusterfs-api                      x86_64 3.12.2-47.2.el7        base     77 k
+ glusterfs-cli                      x86_64 3.12.2-47.2.el7        base    179 k
+ glusterfs-client-xlators           x86_64 3.12.2-47.2.el7        base    883 k
+ glusterfs-libs                     x86_64 3.12.2-47.2.el7        base    387 k
+ grub2                              x86_64 1:2.02-0.80.el7.centos base     32 k
+ grub2-common                       noarch 1:2.02-0.80.el7.centos base    730 k
+ grub2-efi-x64                      x86_64 1:2.02-0.80.el7.centos base    1.1 M
+ grub2-efi-x64-modules              noarch 1:2.02-0.80.el7.centos base    1.1 M
+ grub2-pc                           x86_64 1:2.02-0.80.el7.centos base     32 k
+ grub2-pc-modules                   noarch 1:2.02-0.80.el7.centos base    848 k
+ grub2-tools                        x86_64 1:2.02-0.80.el7.centos base    1.8 M
+ grub2-tools-extra                  x86_64 1:2.02-0.80.el7.centos base    997 k
+ grub2-tools-minimal                x86_64 1:2.02-0.80.el7.centos base    174 k
+ grubby                             x86_64 8.28-26.el7            base     71 k
+ gssproxy                           x86_64 0.7.0-26.el7           base    110 k
+ http-parser                        x86_64 2.7.1-8.el7            base     29 k
+ hwdata                             x86_64 0.252-9.3.el7          base    2.4 M
+ initscripts                        x86_64 9.49.47-1.el7          base    439 k
+ ipa-client                         x86_64 4.6.5-11.el7.centos    base    276 k
+ ipa-client-common                  noarch 4.6.5-11.el7.centos    base    183 k
+ ipa-common                         noarch 4.6.5-11.el7.centos    base    609 k
+ iproute                            x86_64 4.11.0-25.el7          base    803 k
+ iptables                           x86_64 1.4.21-33.el7          base    433 k
+ iptables-services                  x86_64 1.4.21-33.el7          base     52 k
+ ipxe-bootimgs                      noarch 20180825-2.git133f4c.el7
+                                                                  base    1.3 M
+ irqbalance                         x86_64 3:1.0.7-12.el7         base     45 k
+ iscsi-initiator-utils              x86_64 6.2.0.874-11.el7       base    422 k
+ iscsi-initiator-utils-iscsiuio     x86_64 6.2.0.874-11.el7       base     92 k
+ iwl7265-firmware                   noarch 22.0.7.0-72.el7        base    7.3 M
+ kernel-tools                       x86_64 3.10.0-1062.1.1.el7    updates 7.8 M
+ kernel-tools-libs                  x86_64 3.10.0-1062.1.1.el7    updates 7.7 M
+ kexec-tools                        x86_64 2.0.15-33.el7          base    346 k
+ kmod                               x86_64 20-25.el7              base    122 k
+ kmod-libs                          x86_64 20-25.el7              base     51 k
+ kpartx                             x86_64 0.4.9-127.el7          base     78 k
+ krb5-libs                          x86_64 1.15.1-37.el7_7.2      updates 805 k
+ krb5-workstation                   x86_64 1.15.1-37.el7_7.2      updates 816 k
+ libblkid                           x86_64 2.23.2-61.el7          base    181 k
+ libcap                             x86_64 2.22-10.el7            base     47 k
+ libcgroup                          x86_64 0.41-21.el7            base     66 k
+ libcom_err                         x86_64 1.42.9-16.el7          base     41 k
+ libcurl                            x86_64 7.29.0-54.el7          base    222 k
+ libdb                              x86_64 5.3.21-25.el7          base    720 k
+ libdb-utils                        x86_64 5.3.21-25.el7          base    132 k
+ libgcc                             x86_64 4.8.5-39.el7           base    102 k
+ libgomp                            x86_64 4.8.5-39.el7           base    158 k
+ libibverbs                         x86_64 22.1-3.el7             base    267 k
+ libicu                             x86_64 50.2-3.el7             base    6.9 M
+ libipa_hbac                        x86_64 1.16.4-21.el7          base    147 k
+ libkadm5                           x86_64 1.15.1-37.el7_7.2      updates 178 k
+ libldb                             x86_64 1.4.2-1.el7            base    144 k
+ libmount                           x86_64 2.23.2-61.el7          base    183 k
+ libndp                             x86_64 1.2-9.el7              base     32 k
+ librdmacm                          x86_64 22.1-3.el7             base     63 k
+ libsmartcols                       x86_64 2.23.2-61.el7          base    141 k
+ libsmbclient                       x86_64 4.9.1-6.el7            base    137 k
+ libss                              x86_64 1.42.9-16.el7          base     46 k
+ libssh2                            x86_64 1.8.0-3.el7            base     88 k
+ libsss_autofs                      x86_64 1.16.4-21.el7          base    149 k
+ libsss_certmap                     x86_64 1.16.4-21.el7          base    175 k
+ libsss_idmap                       x86_64 1.16.4-21.el7          base    152 k
+ libsss_nss_idmap                   x86_64 1.16.4-21.el7          base    158 k
+ libsss_sudo                        x86_64 1.16.4-21.el7          base    147 k
+ libstdc++                          x86_64 4.8.5-39.el7           base    305 k
+ libtalloc                          x86_64 2.1.14-1.el7           base     32 k
+ libtdb                             x86_64 1.3.16-1.el7           base     48 k
+ libteam                            x86_64 1.27-9.el7             base     49 k
+ libtevent                          x86_64 0.9.37-1.el7           base     40 k
+ libtirpc                           x86_64 0.2.4-0.16.el7         base     89 k
+ libuuid                            x86_64 2.23.2-61.el7          base     83 k
+ libvirt                            x86_64 4.5.0-23.el7_7.1       updates 197 k
+ libvirt-bash-completion            x86_64 4.5.0-23.el7_7.1       updates 198 k
+ libvirt-client                     x86_64 4.5.0-23.el7_7.1       updates 495 k
+ libvirt-daemon                     x86_64 4.5.0-23.el7_7.1       updates 841 k
+ libvirt-daemon-config-network      x86_64 4.5.0-23.el7_7.1       updates 199 k
+ libvirt-daemon-config-nwfilter     x86_64 4.5.0-23.el7_7.1       updates 204 k
+ libvirt-daemon-driver-interface    x86_64 4.5.0-23.el7_7.1       updates 236 k
+ libvirt-daemon-driver-lxc          x86_64 4.5.0-23.el7_7.1       updates 330 k
+ libvirt-daemon-driver-network      x86_64 4.5.0-23.el7_7.1       updates 410 k
+ libvirt-daemon-driver-nodedev      x86_64 4.5.0-23.el7_7.1       updates 236 k
+ libvirt-daemon-driver-nwfilter     x86_64 4.5.0-23.el7_7.1       updates 260 k
+ libvirt-daemon-driver-qemu         x86_64 4.5.0-23.el7_7.1       updates 745 k
+ libvirt-daemon-driver-secret       x86_64 4.5.0-23.el7_7.1       updates 226 k
+ libvirt-daemon-driver-storage      x86_64 4.5.0-23.el7_7.1       updates 197 k
+ libvirt-daemon-driver-storage-core x86_64 4.5.0-23.el7_7.1       updates 435 k
+ libvirt-daemon-driver-storage-disk x86_64 4.5.0-23.el7_7.1       updates 227 k
+ libvirt-daemon-driver-storage-gluster
+                                    x86_64 4.5.0-23.el7_7.1       updates 235 k
+ libvirt-daemon-driver-storage-iscsi
+                                    x86_64 4.5.0-23.el7_7.1       updates 225 k
+ libvirt-daemon-driver-storage-logical
+                                    x86_64 4.5.0-23.el7_7.1       updates 229 k
+ libvirt-daemon-driver-storage-mpath
+                                    x86_64 4.5.0-23.el7_7.1       updates 224 k
+ libvirt-daemon-driver-storage-rbd  x86_64 4.5.0-23.el7_7.1       updates 230 k
+ libvirt-daemon-driver-storage-scsi x86_64 4.5.0-23.el7_7.1       updates 225 k
+ libvirt-libs                       x86_64 4.5.0-23.el7_7.1       updates 4.2 M
+ libwbclient                        x86_64 4.9.1-6.el7            base    110 k
+ lm_sensors-libs                    x86_64 3.4.0-8.20160601gitf9185e5.el7
+                                                                  base     42 k
+ lshw                               x86_64 B.02.18-13.el7         base    321 k
+ lvm2                               x86_64 7:2.02.185-2.el7       base    1.3 M
+ lvm2-libs                          x86_64 7:2.02.185-2.el7       base    1.1 M
+ lz4                                x86_64 1.7.5-3.el7            base     99 k
+ make                               x86_64 1:3.82-24.el7          base    421 k
+ microcode_ctl                      x86_64 2:2.1-53.el7           base    2.0 M
+ net-snmp                           x86_64 1:5.7.2-43.el7         base    331 k
+ net-snmp-agent-libs                x86_64 1:5.7.2-43.el7         base    706 k
+ net-snmp-libs                      x86_64 1:5.7.2-43.el7         base    750 k
+ net-snmp-utils                     x86_64 1:5.7.2-43.el7         base    199 k
+ net-tools                          x86_64 2.0-0.25.20131004git.el7
+                                                                  base    306 k
+ nfs-utils                          x86_64 1:1.3.0-0.65.el7       base    412 k
+ nmap-ncat                          x86_64 2:6.40-19.el7          base    206 k
+ nspr                               x86_64 4.21.0-1.el7           base    127 k
+ nss                                x86_64 3.44.0-4.el7           base    854 k
+ nss-pem                            x86_64 1.0.3-7.el7            base     74 k
+ nss-softokn                        x86_64 3.44.0-5.el7           base    329 k
+ nss-softokn-freebl                 x86_64 3.44.0-5.el7           base    224 k
+ nss-sysinit                        x86_64 3.44.0-4.el7           base     64 k
+ nss-tools                          x86_64 3.44.0-4.el7           base    528 k
+ nss-util                           x86_64 3.44.0-3.el7           base     79 k
+ ntp                                x86_64 4.2.6p5-29.el7.centos  base    548 k
+ ntpdate                            x86_64 4.2.6p5-29.el7.centos  base     86 k
+ numactl                            x86_64 2.0.12-3.el7           base     65 k
+ numactl-libs                       x86_64 2.0.12-3.el7           base     30 k
+ oci-umount                         x86_64 2:2.5-3.el7            extras   33 k
+ openssh                            x86_64 7.4p1-21.el7           base    510 k
+ openssh-clients                    x86_64 7.4p1-21.el7           base    655 k
+ openssh-server                     x86_64 7.4p1-21.el7           base    459 k
+ openssl                            x86_64 1:1.0.2k-19.el7        base    493 k
+ openssl-libs                       x86_64 1:1.0.2k-19.el7        base    1.2 M
+ openssl-perl                       x86_64 1:1.0.2k-19.el7        base     71 k
+ pacemaker                          x86_64 1.1.20-5.el7_7.1       updates 472 k
+ pacemaker-cli                      x86_64 1.1.20-5.el7_7.1       updates 360 k
+ pacemaker-cluster-libs             x86_64 1.1.20-5.el7_7.1       updates 162 k
+ pacemaker-libs                     x86_64 1.1.20-5.el7_7.1       updates 629 k
+ pacemaker-remote                   x86_64 1.1.20-5.el7_7.1       updates 155 k
+ parted                             x86_64 3.1-31.el7             base    609 k
+ passwd                             x86_64 0.79-5.el7             base    105 k
+ pcs                                x86_64 0.9.167-3.el7.centos.1 updates 4.1 M
+ podman                             x86_64 1.4.4-4.el7.centos     extras  9.3 M
+ policycoreutils                    x86_64 2.5-33.el7             base    916 k
+ policycoreutils-python             x86_64 2.5-33.el7             base    457 k
+ polkit                             x86_64 0.112-22.el7_7.1       updates 170 k
+ procps-ng                          x86_64 3.3.10-26.el7          base    291 k
+ psmisc                             x86_64 22.20-16.el7           base    141 k
+ python                             x86_64 2.7.5-86.el7           base     95 k
+ python-ipaddr                      noarch 2.1.11-2.el7           base     35 k
+ python-libipa_hbac                 x86_64 1.16.4-21.el7          base    140 k
+ python-libs                        x86_64 2.7.5-86.el7           base    5.6 M
+ python-linux-procfs                noarch 0.4.11-4.el7           base     33 k
+ python-perf                        x86_64 3.10.0-1062.1.1.el7    updates 7.8 M
+ python-sss-murmur                  x86_64 1.16.4-21.el7          base    130 k
+ python-sssdconfig                  noarch 1.16.4-21.el7          base    165 k
+ python2-ipaclient                  noarch 4.6.5-11.el7.centos    base    691 k
+ python2-ipalib                     noarch 4.6.5-11.el7.centos    base    673 k
+ python2-subprocess32               x86_64 3.2.6-14.el7           base     47 k
+ qemu-guest-agent                   x86_64 10:2.12.0-3.el7        base    116 k
+ qemu-img-ev                        x86_64 10:2.12.0-33.1.el7     rdo-qemu-ev
+                                                                          1.3 M
+ quota                              x86_64 1:4.01-19.el7          base    179 k
+ quota-nls                          noarch 1:4.01-19.el7          base     90 k
+ rdma-core                          x86_64 22.1-3.el7             base     50 k
+ readline                           x86_64 6.2-11.el7             base    193 k
+ resource-agents                    x86_64 4.1.1-30.el7_7.2       updates 452 k
+ rpcbind                            x86_64 0.2.0-48.el7           base     60 k
+ rpm                                x86_64 4.11.3-40.el7          base    1.2 M
+ rpm-build-libs                     x86_64 4.11.3-40.el7          base    107 k
+ rpm-libs                           x86_64 4.11.3-40.el7          base    278 k
+ rpm-python                         x86_64 4.11.3-40.el7          base     83 k
+ rsyslog                            x86_64 8.24.0-41.el7_7        updates 616 k
+ ruby                               x86_64 2.0.0.648-36.el7       base     73 k
+ ruby-irb                           noarch 2.0.0.648-36.el7       base     94 k
+ ruby-libs                          x86_64 2.0.0.648-36.el7       base    2.8 M
+ rubygem-bigdecimal                 x86_64 1.2.0-36.el7           base     85 k
+ rubygem-io-console                 x86_64 0.4.2-36.el7           base     56 k
+ rubygem-json                       x86_64 1.7.7-36.el7           base     81 k
+ rubygem-psych                      x86_64 2.0.0-36.el7           base     84 k
+ rubygem-rdoc                       noarch 4.0.0-36.el7           base    324 k
+ rubygems                           noarch 2.0.14.1-36.el7        base    215 k
+ runc                               x86_64 1.0.0-65.rc8.el7.centos
+                                                                  extras  2.0 M
+ samba-client-libs                  x86_64 4.9.1-6.el7            base    4.9 M
+ samba-common                       noarch 4.9.1-6.el7            base    209 k
+ samba-common-libs                  x86_64 4.9.1-6.el7            base    170 k
+ selinux-policy                     noarch 3.13.1-252.el7.1       updates 492 k
+ selinux-policy-targeted            noarch 3.13.1-252.el7.1       updates 7.0 M
+ sg3_utils                          x86_64 1.37-18.el7_7.1        updates 646 k
+ sg3_utils-libs                     x86_64 1.37-18.el7_7.1        updates  65 k
+ shadow-utils                       x86_64 2:4.6-5.el7            base    1.2 M
+ sos                                noarch 3.7-6.el7.centos       updates 502 k
+ sssd                               x86_64 1.16.4-21.el7          base    139 k
+ sssd-ad                            x86_64 1.16.4-21.el7          base    270 k
+ sssd-client                        x86_64 1.16.4-21.el7          base    207 k
+ sssd-common                        x86_64 1.16.4-21.el7          base    1.4 M
+ sssd-common-pac                    x86_64 1.16.4-21.el7          base    210 k
+ sssd-ipa                           x86_64 1.16.4-21.el7          base    360 k
+ sssd-krb5                          x86_64 1.16.4-21.el7          base    180 k
+ sssd-krb5-common                   x86_64 1.16.4-21.el7          base    214 k
+ sssd-ldap                          x86_64 1.16.4-21.el7          base    233 k
+ sssd-proxy                         x86_64 1.16.4-21.el7          base    174 k
+ subscription-manager-rhsm-certificates
+                                    x86_64 1.24.13-3.el7.centos   updates 228 k
+ sudo                               x86_64 1.8.23-4.el7           base    841 k
+ systemd                            x86_64 219-67.el7_7.1         updates 5.1 M
+ systemd-libs                       x86_64 219-67.el7_7.1         updates 411 k
+ systemd-sysv                       x86_64 219-67.el7_7.1         updates  88 k
+ tcpdump                            x86_64 14:4.9.2-4.el7         base    421 k
+ teamd                              x86_64 1.27-9.el7             base    113 k
+ tmpwatch                           x86_64 2.11-6.el7             base     39 k
+ tuned                              noarch 2.11.0-5.el7_7.1       updates 268 k
+ tuned-profiles-cpu-partitioning    noarch 2.11.0-5.el7_7.1       updates  33 k
+ tzdata                             noarch 2019c-1.el7            updates 493 k
+ util-linux                         x86_64 2.23.2-61.el7          base    2.0 M
+ vim-minimal                        x86_64 2:7.4.629-6.el7        base    443 k
+ xfsprogs                           x86_64 4.5.0-20.el7           base    896 k
+ yum                                noarch 3.4.3-163.el7.centos   base    1.2 M
+ yum-plugin-fastestmirror           noarch 1.1.31-52.el7          base     34 k
+ yum-utils                          noarch 1.1.31-52.el7          base    121 k
+Installing for dependencies:
+ OpenIPMI                           x86_64 2.0.27-1.el7           base    243 k
+ OpenIPMI-libs                      x86_64 2.0.27-1.el7           base    523 k
+ bind-export-libs                   x86_64 32:9.11.4-9.P2.el7     base    1.1 M
+ centos-logos                       noarch 70.0.6-3.el7.centos    base     21 M
+ geoipupdate                        x86_64 2.5.0-1.el7            base     35 k
+ linux-firmware                     noarch 20190429-72.gitddde598.el7
+                                                                  base     73 M
+
+Transaction Summary
+================================================================================
+Install    1 Package  (+6 Dependent packages)
+Upgrade  316 Packages
+
+Total download size: 381 M
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+--------------------------------------------------------------------------------
+Total                                              1.8 MB/s | 381 MB  03:29     
+Running transaction check
+Running transaction test
+
+
+Transaction check error:
+  installing package docker-2:1.13.1-103.git7f2769b.el7.centos.x86_64 needs 33MB on the / filesystem
+  installing package podman-1.4.4-4.el7.centos.x86_64 needs 11MB on the / filesystem
+  installing package kernel-tools-3.10.0-1062.1.1.el7.x86_64 needs 2MB on the / filesystem
+  installing package sudo-1.8.23-4.el7.x86_64 needs 6MB on the / filesystem
+  installing package teamd-1.27-9.el7.x86_64 needs 3MB on the / filesystem
+  installing package yum-utils-1.1.31-52.el7.noarch needs 3MB on the / filesystem
+  installing package tmpwatch-2.11-6.el7.x86_64 needs 3MB on the / filesystem
+  installing package passwd-0.79-5.el7.x86_64 needs 3MB on the / filesystem
+  installing package gdisk-0.8.10-3.el7.x86_64 needs 3MB on the / filesystem
+  installing package libicu-50.2-3.el7.x86_64 needs 28MB on the / filesystem
+  installing package python2-subprocess32-3.2.6-14.el7.x86_64 needs 28MB on the / filesystem
+  installing package sos-3.7-6.el7.centos.noarch needs 34MB on the / filesystem
+  installing package python-ipaddr-2.1.11-2.el7.noarch needs 29MB on the / filesystem
+  installing package tcpdump-14:4.9.2-4.el7.x86_64 needs 30MB on the / filesystem
+  installing package numactl-2.0.12-3.el7.x86_64 needs 29MB on the / filesystem
+  installing package dpdk-18.11.2-1.el7.x86_64 needs 35MB on the / filesystem
+  installing package efivar-libs-36-12.el7.x86_64 needs 30MB on the / filesystem
+  installing package libndp-1.2-9.el7.x86_64 needs 30MB on the / filesystem
+  installing package libgomp-4.8.5-39.el7.x86_64 needs 30MB on the / filesystem
+  installing package augeas-libs-1.4.0-9.el7.x86_64 needs 32MB on the / filesystem
+  installing package grub2-efi-x64-modules-1:2.02-0.80.el7.centos.noarch needs 36MB on the / filesystem
+  installing package iwl7265-firmware-22.0.7.0-72.el7.noarch needs 104MB on the / filesystem
+  installing package ipxe-bootimgs-20180825-2.git133f4c.el7.noarch needs 45MB on the / filesystem
+
+Error Summary
+-------------
+Disk Requirements:
+  At least 104MB more space needed on the / filesystem.
+
+virt-customize: error: /home/stack/repo_setup.sh: command exited with an 
+error
+
+If reporting bugs, run virt-customize with debugging enabled and include 
+the complete output:
+
+  virt-customize -v -x [...]
